@@ -8,7 +8,7 @@ class PSOParamRanges:
 	global_c: Any
 	social: Any
 	swarm_size: Any
-	informants_size: int
+	informants_size: Any
 	informant_selection: str
 	boundary_handling: str
 	jump_size: float

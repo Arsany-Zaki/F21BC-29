@@ -1,6 +1,6 @@
 # Investigate the effect of different velocity coefficients on PSO performance
 analysis_config:
-  runs_count: 10
+  runs_count: 2
 
 inves_vel_coeffs:
   metadata:
@@ -11,10 +11,10 @@ inves_vel_coeffs:
           description: "Experiment group with NN having 2 hidden layers"
         pso_param_ranges:
           # Velocity coefficients range to be explored
-          inertia:  [0.4, 0.6, 0.1] 
-          personal: [1.0, 1.5, 0.2]
-          global_c:   [1.0, 1.5, 0.6]
-          social:   [1.0, 1.5, 0.6]
+          inertia:  [1.0, 1.0, 0.1] 
+          personal: [1.0, 1.0, 0.1] 
+          global_c:   [1.0, 1.0, 0.1] 
+          social:   [1.0, 1.0, 0.1] 
           iterations_count: 10
           swarm_size: 5
           informants_size: 2
@@ -44,7 +44,7 @@ inves_fixed_budget:
           personal: 1.4
           global_c:   1.4
           social:   1.4
-          informants_size: 5
+          informants_size: [2, 3, 5]
           informant_selection: 'static_random'
           boundary_handling: 'reflect'
           jump_size: 1.0

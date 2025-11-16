@@ -20,6 +20,7 @@ class PSO:
         self._initialize_swarm()
     
     def _initialize_swarm(self):
+        
         self.positions = self.rng.uniform(self.boundary_min, self.boundary_max, size=(self.config.swarm_size, self.dims))
         self.fitness = np.full(self.config.swarm_size, np.nan)
 
@@ -72,6 +73,9 @@ class PSO:
             self.sbest_fit[i] = self.pbest_fit[best_idx]
     
     def _update_informants(self):
+        if self.config.informant_count >= self.config.swarm_size:
+            raise ValueError(f"informant_count ({self.config.informant_count}) must be less than swarm_size ({self.config.swarm_size})")
+        
         n_particles = self.config.swarm_size
         
         if self.config.informant_selection == InformantSelect.STATIC_RANDOM:

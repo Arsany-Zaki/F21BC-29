@@ -4,9 +4,9 @@ from data_prep.constants import *
 @dataclass
 class DataPrepConfig:
     norm_method: NormMethod = NormMethod.ZSCORE
-    norm_factors: list[float] = field(default_factory=lambda: NORM_DEFAULT_FACTORS[NormMethod.ZSCORE])
+    norm_factors: list[float] = field(default_factory=lambda: [0.0, 1.0])
     split_test_size: float = 0.3    
-    random_seed: int = 42           
+    random_seed: int = 42
 
 @dataclass
 class Point:
