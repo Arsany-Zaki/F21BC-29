@@ -22,15 +22,15 @@ data_config = DataPrepConfig(
 # Neural Network configuration
 nn_config = NNConfig(
     input_dim = 8,
-    layers_sizes = [16, 1],
+    layers_sizes = [8, 1],
     activation_functions = [ActFunc.RELU, ActFunc.LINEAR],
     cost_function = CostFunc.MEAN_SQUARED_ERROR
 )
 # PSO configuration
 pso_config = PSOConfig(
-    max_iter = 200,
-    swarm_size = 50,
-    informant_count = 20,
+    max_iter = 10,
+    swarm_size = 5,
+    informant_count = 2,
 
     #max_iter = 20,
     #swarm_size = 10,
@@ -53,7 +53,7 @@ pso_config = PSOConfig(
 )
 
 def main():
-    gc.GC_DEBUG_MODE = True
+    gc.GC_PSO_PRINT = True
     # Read data from file and prepare it (normalize and split into training and testing sets)
     print("Get normalized input data split...", end="\n\n")
     data_prep = DataPrep(data_config)

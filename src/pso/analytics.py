@@ -20,4 +20,4 @@ class Analytics_PSO_Run:
             print(f'Iteration {len(self.analytics_swarm_runs):4d}:   Global Best Fitness = {fitness:12.6f}   {new_text}')
 
     def is_debug_mode(self) -> bool:
-        return gc.GC_DEBUG_MODE
+        return gc.GC_PSO_PRINT

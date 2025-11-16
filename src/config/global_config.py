@@ -1,2 +1,3 @@
 # GC = Global Config
-GC_DEBUG_MODE = False
+GC_PSO_PRINT = False
+GC_EXP_OUTPUT = 'terminal'  # Options: 'terminal', 'file'

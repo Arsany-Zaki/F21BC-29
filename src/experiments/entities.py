@@ -3,9 +3,13 @@ from nn.entities import NNConfig
 from dataclasses import dataclass
 
 @dataclass
-class ExpParams:
+class GenExpParams:
 	pso_params: PSOConfig
 	nn_params: NNConfig
+
+@dataclass
+class GenExpGroupParams:
+	exp_params: list[GenExpParams]
 
 @dataclass
 class ExpRunResult:

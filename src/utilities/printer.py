@@ -1,5 +1,28 @@
 from pso.entities import PSOConfig
 from nn.entities import NNConfig
+from experiments.entities import ExpResult
+
+class Printer:
+	def __init__(self):
+		pass
+	def start_inves(self, metadata: dict[str, str]):
+		print('** ' * 4, f"Investigation: {metadata.get('name', 'Unknown')}")
+	def start_exp_group(self, metadata: dict[str, str]):
+		print('** ' * 3, f"Experiment Group: {metadata['name']}")
+	def start_exp(self, metadata: dict[str, str]):
+		print('** ' * 2, f"Investigation: {metadata.get('name', 'Unknown')}")
+	
+
+	def exp_result(self, exp_result: ExpResult):
+		print('** ' * 2, "Experiment Result Summary:")
+		print(f"  Average Training Cost: {exp_result.avg_training_cost:.6f} ± {exp_result.std_training_cost:.6f}")
+		print(f"  Average Training Time (secs): {exp_result.avg_training_time_secs:.2f} ± {exp_result.std_training_time_secs:.2f}")
+		print(f"  Average Test Cost: {exp_result.avg_test_cost:.6f} ± {exp_result.std_test_cost:.6f}")
+		print(f"  Average MSE: {exp_result.avg_mse:.6f} ± {exp_result.std_mse:.6f}")
+		print(f"  Average RMSE: {exp_result.avg_rmse:.6f} ± {exp_result.std_rmse:.6f}")
+		print(f"  Average MAE: {exp_result.avg_mae:.6f} ± {exp_result.std_mae:.6f}")
+		print(f"  Average Generalization Ratio: {exp_result.avg_generalization_ratio:.6f} ± {exp_result.std_generalization_ratio:.6f}")
+
 
 def pso_config_printer(pso: PSOConfig):
 	print("  PSOConfig:")

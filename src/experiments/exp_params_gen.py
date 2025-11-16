@@ -78,25 +78,28 @@ def _make_nn_config_grid(nn: NNParamRanges):
 		cost_function=_to_enum(CostFunc, nn.cost_func)
 	)
 
-def gen_vel_coeffs_params(all_config: Config) -> List[ExpParams]:
-	params = []
-	for group_dict in all_config.inves_vel_coeffs.exp_group_params:
+def gen_vel_coeffs_params(all_config: Config) -> List[GenExpGroupParams]:
+	exp_groups = []
+	for group_dict in all_config.inves_vel_coeffs.exp_groups:
 		for group in group_dict.values():
+			params = []
 			for pso in _make_pso_config_grid(group.pso_param_ranges):
 				for nn in _make_nn_config_grid(group.nn_param_ranges):
-					params.append(ExpParams(pso_params=pso, nn_params=nn))
-	return params
+					params.append(GenExpParams(pso_params=pso, nn_params=nn))
+			exp_groups.append(GenExpGroupParams(exp_params=params))
+	return exp_groups
 
-
-def gen_fixed_budget_params(all_config: Config) -> List[ExpParams]:
-	params = []
-	for group_dict in all_config.inves_fixed_budget.exp_group_params:
+def gen_fixed_budget_params(all_config: Config) -> List[GenExpGroupParams]:
+	exp_groups = []
+	for group_dict in all_config.inves_fixed_budget.exp_groups:
 		for group in group_dict.values():
+			params = []
 			budget = getattr(group, 'budget', None)
 			for pso in _make_pso_config_grid(group.pso_param_ranges, budget=budget):
 				for nn in _make_nn_config_grid(group.nn_param_ranges):
-					params.append(ExpParams(pso_params=pso, nn_params=nn))
-	return params
+					params.append(GenExpParams(pso_params=pso, nn_params=nn))
+			exp_groups.append(GenExpGroupParams(exp_params=params))
+	return exp_groups
 
 def load_config(path: str) -> Config:
 	with open(path, 'r') as f:

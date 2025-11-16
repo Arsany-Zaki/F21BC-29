@@ -4,11 +4,14 @@ analysis_config:
 
 inves_vel_coeffs:
   metadata:
+    name: "Velocity Coeffs Effect"
     description: "Investigate the effect of different velocity coefficients on PSO performance"
-  exp_group_params:
+  exp_groups:
     - exp_Group:
+        id: 'vel_coeffs_1'
         metadata:
-          description: "Experiment group with NN having 2 hidden layers"
+          name: "Velocity Coeffs Experiments with small swarm"
+          description: "Experiment group with small swarm and NN having 2 hidden layers"
         pso_param_ranges:
           # Velocity coefficients range to be explored
           inertia:  [1.0, 1.0, 0.1] 
@@ -30,11 +33,14 @@ inves_vel_coeffs:
 # Investigate the effect of different breakdown of fitness run budget
 inves_fixed_budget:
   metadata:
+    name: "Fixed Budget Effect"
     description: "Investigate the effect of different breakdown of fitness run budget"
-  exp_group_params:
+  exp_groups:
     - exp_group:
+        id: 'fixed_budget_1'
         metadata:
-          description: "Experiment group with NN having 2 hidden layers"
+          name: "Fixed Budget Experiments with optimal PSO coeffs"
+          description: "Experiment group with 1.4 PSO coeffs and NN having 2 hidden layers"
         budget: 50 
         pso_param_ranges:
           # swarm range to be explored
@@ -44,6 +50,29 @@ inves_fixed_budget:
           personal: 1.4
           global_c:   1.4
           social:   1.4
+          informants_size: [2, 3, 5]
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['relu', 'relu', 'linear']
+          cost_func: 'mse'
+    - exp_group:
+        id: 'fixed_budget_2'
+        metadata:
+          name: "Fixed Budget Experiments with PSO coeffs of 1"
+          description: "Experiment group with 1.4 PSO coeffs and NN having 2 hidden layers"
+        budget: 50 
+        pso_param_ranges:
+          # swarm range to be explored
+          swarm_size: [5, 10, 2] # (min, max, step)
+          # Iterations calculated as fitness_run_budget / swarm_size
+          inertia:  0.5
+          personal: 1.0
+          global_c:   1.0
+          social:   1.0
           informants_size: [2, 3, 5]
           informant_selection: 'static_random'
           boundary_handling: 'reflect'

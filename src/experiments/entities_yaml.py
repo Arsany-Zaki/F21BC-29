@@ -23,6 +23,7 @@ class NNParamRanges:
 
 @dataclass
 class ExpGroup:
+	id: str
 	metadata: Dict[str, Any]
 	pso_param_ranges: PSOParamRanges
 	nn_param_ranges: NNParamRanges
@@ -31,7 +32,7 @@ class ExpGroup:
 @dataclass
 class Investigation:
 	metadata: Dict[str, Any]
-	exp_group_params: List[Dict[str, ExpGroup]]
+	exp_groups: List[Dict[str, ExpGroup]]
 
 @dataclass
 class AnalysisConfig:
