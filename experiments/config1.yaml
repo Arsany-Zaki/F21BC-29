@@ -1,0 +1,55 @@
+# Investigate the effect of different velocity coefficients on PSO performance
+analysis_config:
+  runs_count: 10
+
+inves_vel_coeffs:
+  metadata:
+    description: "Investigate the effect of different velocity coefficients on PSO performance"
+  exp_group_params:
+    - exp_Group:
+        metadata:
+          description: "Experiment group with NN having 2 hidden layers"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.4, 0.6, 0.1] 
+          personal: [1.0, 1.5, 0.2]
+          global_c:   [1.0, 1.5, 0.6]
+          social:   [1.0, 1.5, 0.6]
+          iterations_count: 10
+          swarm_size: 5
+          informants_size: 2
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['relu', 'relu', 'linear']
+          cost_func: 'mse'
+
+# Investigate the effect of different breakdown of fitness run budget
+inves_fixed_budget:
+  metadata:
+    description: "Investigate the effect of different breakdown of fitness run budget"
+  exp_group_params:
+    - exp_group:
+        metadata:
+          description: "Experiment group with NN having 2 hidden layers"
+        budget: 50 
+        pso_param_ranges:
+          # swarm range to be explored
+          swarm_size: [5, 10, 2] # (min, max, step)
+          # Iterations calculated as fitness_run_budget / swarm_size
+          inertia:  0.5
+          personal: 1.4
+          global_c:   1.4
+          social:   1.4
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['relu', 'relu', 'linear']
+          cost_func: 'mse'
