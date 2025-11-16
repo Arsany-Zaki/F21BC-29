@@ -1,16 +1,19 @@
 from pso.entities import PSOConfig
 from nn.entities import NNConfig
 from experiments.entities import ExpResult
+from experiments.entities_yaml import ExpGroup
 
 class Printer:
 	def __init__(self):
 		pass
 	def start_inves(self, metadata: dict[str, str]):
-		print('** ' * 4, f"Investigation: {metadata.get('name', 'Unknown')}")
-	def start_exp_group(self, metadata: dict[str, str]):
-		print('** ' * 3, f"Experiment Group: {metadata['name']}")
+		print('**' * 4, f"Investigation: {metadata.get('name', 'Unknown')}")
+	def start_exp_group(self, exp_group: ExpGroup):
+		print('**' * 3, f"Experiment Group: {exp_group.id}")
+		print('  ' * 3, f"Name: {exp_group.metadata.get('name', 'Unknown')}")
+		print('  ' * 3, f"Description: {exp_group.metadata.get('description', 'Unknown')}")
 	def start_exp(self, metadata: dict[str, str]):
-		print('** ' * 2, f"Investigation: {metadata.get('name', 'Unknown')}")
+		print('**' * 2, f"Investigation: {metadata.get('name', 'Unknown')}")
 	
 
 	def exp_result(self, exp_result: ExpResult):

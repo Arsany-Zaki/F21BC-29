@@ -19,7 +19,7 @@ def run_exp_suite():
 	for group_config, gen_params in zip(
 		config.inves_vel_coeffs.exp_groups, vel_coeffs_gen_params):
 		exp_group = list(group_config.values())[0]
-		printer.start_exp_group(exp_group.metadata)
+		printer.start_exp_group(exp_group)
 		for exp_params in gen_params.exp_params:
 			exp_result = execute_exp(
 				training_data=training_points, 
@@ -36,7 +36,7 @@ def run_exp_suite():
 	for group_config, gen_params in zip(
 		config.inves_fixed_budget.exp_groups, fixed_budget_gen_params):
 		exp_group = list(group_config.values())[0]
-		printer.start_exp_group(exp_group.metadata)
+		printer.start_exp_group(exp_group)
 		for exp_params in gen_params.exp_params:
 			exp_result = execute_exp(
 				training_data=training_points, 
