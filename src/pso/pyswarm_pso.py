@@ -1,11 +1,11 @@
 # Out-of-the-box PSO implementation from pyswarm library
 # Test the implemented PSO against this one for verification
  
-from .entities import PSOConfig
+from .entities import PSOParams
 from pyswarm import pso as pyswarm_pso
 
 class PySwarmPSO:
-	def __init__(self, config: PSOConfig):
+	def __init__(self, config: PSOParams):
 		self.config = config
 
 	def optimize_with_given_config(self, fitness_func):

@@ -1,5 +1,5 @@
-from nn.nn import NNConfig
-from pso.pso import PSOConfig
+from nn.nn import NNParams
+from pso.pso import PSOParams
 from experiments.entities_yaml import *
 from pso_nn_coupling.nn_trainer_with_pso import NNTrainerUsingPSO
 from nn.nn import NeuralNetwork
@@ -12,10 +12,10 @@ from typing import List
 def _execute_exp_run(
     training_data: List[Point], 
     testing_data: List[Point],
-    nn_config: NNConfig, 
-    pso_config: PSOConfig,
+    nn_config: NNParams, 
+    pso_config: PSOParams,
     data_config: DataPrepConfig
-) -> ExpRunResult:
+) -> RunResult:
     # Train neural network using PSO
     nn_trainer = NNTrainerUsingPSO(
         training_points=training_data,
@@ -48,7 +48,7 @@ def _execute_exp_run(
     sum_abs_error = sum(abs(pred - target_real)  for pred, target_real in zip(nn_predictions_real_vals, test_target))
     mae = sum_abs_error / len(testing_data)
     
-    return ExpRunResult(
+    return RunResult(
         training_cost=best_training_cost,
         training_time_secs=training_time_secs,
         test_cost=test_cost,
@@ -61,11 +61,11 @@ def _execute_exp_run(
 def execute_exp(
     training_data: List[Point], 
     testing_data: List[Point],
-    nn_config: NNConfig, 
-    pso_config: PSOConfig,
+    nn_config: NNParams, 
+    pso_config: PSOParams,
     data_config: DataPrepConfig
-) -> ExpResult:
-    exp_result = ExpResult(
+) -> ExpResults:
+    exp_result = ExpResults(
         exp_run_results=[],
         avg_training_cost=0,
         avg_training_time_secs=0,

@@ -22,7 +22,7 @@ class NNParamRanges:
 	cost_func: str
 
 @dataclass
-class ExpGroup:
+class GroupConfig:
 	id: str
 	metadata: Dict[str, Any]
 	pso_param_ranges: PSOParamRanges
@@ -30,9 +30,9 @@ class ExpGroup:
 	budget: Optional[int] = None
 
 @dataclass
-class Investigation:
+class InvesConfig:
 	metadata: Dict[str, Any]
-	exp_groups: List[Dict[str, ExpGroup]]
+	groups: List[GroupConfig]
 
 @dataclass
 class AnalysisConfig:
@@ -41,7 +41,7 @@ class AnalysisConfig:
 @dataclass
 class Config:
 	analysis_config: AnalysisConfig
-	inves_vel_coeffs: Investigation
-	inves_fixed_budget: Investigation
+	inves_vel_coeffs: InvesConfig
+	inves_fixed_budget: InvesConfig
 
 

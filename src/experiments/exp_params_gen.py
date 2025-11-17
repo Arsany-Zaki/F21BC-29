@@ -1,8 +1,8 @@
 import yaml
 from typing import List
 from dacite import from_dict
-from pso.entities import PSOConfig
-from nn.entities import NNConfig
+from pso.entities import PSOParams
+from nn.entities import NNParams
 from pso.constants import BoundHandling, InformantSelect
 from nn.constants import ActFunc, CostFunc
 from experiments.entities_yaml import *
@@ -53,7 +53,7 @@ def _make_pso_config_grid(pso: PSOParamRanges, budget: int = None):
 			max_iter = int(budget // swarm_size)
 		else:
 			max_iter = iterations_count if iterations_count is not None else 0
-		yield PSOConfig(
+		yield PSOParams(
 			max_iter=max_iter,
 			swarm_size=swarm_size,
 			w_inertia=inertia,
@@ -71,35 +71,33 @@ def _make_pso_config_grid(pso: PSOParamRanges, budget: int = None):
 		)
 
 def _make_nn_config_grid(nn: NNParamRanges):
-	yield NNConfig(
+	yield NNParams(
 		input_dim=nn.input_dim,
 		layers_sizes=nn.layers_sizes,
 		activation_functions=[_to_enum(ActFunc, a) for a in nn.act_funcs],
 		cost_function=_to_enum(CostFunc, nn.cost_func)
 	)
 
-def gen_vel_coeffs_params(all_config: Config) -> List[GenExpGroupParams]:
+def gen_vel_coeffs_params(all_config: Config) -> InvesParams:
 	exp_groups = []
-	for group_dict in all_config.inves_vel_coeffs.exp_groups:
-		for group in group_dict.values():
-			params = []
-			for pso in _make_pso_config_grid(group.pso_param_ranges):
-				for nn in _make_nn_config_grid(group.nn_param_ranges):
-					params.append(GenExpParams(pso_params=pso, nn_params=nn))
-			exp_groups.append(GenExpGroupParams(exp_params=params))
-	return exp_groups
+	for group in all_config.inves_vel_coeffs.groups:
+		params = []
+		for pso in _make_pso_config_grid(group.pso_param_ranges):
+			for nn in _make_nn_config_grid(group.nn_param_ranges):
+				params.append(ExpParams(pso_params=pso, nn_params=nn))
+		exp_groups.append(GroupParams(exp_params=params))
+	return InvesParams(exp_groups=exp_groups)
 
-def gen_fixed_budget_params(all_config: Config) -> List[GenExpGroupParams]:
+def gen_fixed_budget_params(all_config: Config) -> InvesParams:
 	exp_groups = []
-	for group_dict in all_config.inves_fixed_budget.exp_groups:
-		for group in group_dict.values():
-			params = []
-			budget = getattr(group, 'budget', None)
-			for pso in _make_pso_config_grid(group.pso_param_ranges, budget=budget):
-				for nn in _make_nn_config_grid(group.nn_param_ranges):
-					params.append(GenExpParams(pso_params=pso, nn_params=nn))
-			exp_groups.append(GenExpGroupParams(exp_params=params))
-	return exp_groups
+	for group in all_config.inves_fixed_budget.groups:
+		params = []
+		budget = getattr(group, 'budget', None)
+		for pso in _make_pso_config_grid(group.pso_param_ranges, budget=budget):
+			for nn in _make_nn_config_grid(group.nn_param_ranges):
+				params.append(ExpParams(pso_params=pso, nn_params=nn))
+		exp_groups.append(GroupParams(exp_params=params))
+	return InvesParams(exp_groups=exp_groups)
 
 def load_config(path: str) -> Config:
 	with open(path, 'r') as f:

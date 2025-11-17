@@ -13,40 +13,44 @@ def run_exp_suite():
 
 	config = load_config(PATH_EXP_CONFIG_FILE)
 	
-	vel_coeffs_gen_params = gen_vel_coeffs_params(config)
-	vel_coeffs_exp_results = []
+	vel_coeffs_inves_params = gen_vel_coeffs_params(config)
+	vel_coeffs_inves_results = InvesResults_VelCoeffs(exp_group_results=[])
 	printer.start_inves(config.inves_vel_coeffs.metadata)
-	for group_config, gen_params in zip(
-		config.inves_vel_coeffs.exp_groups, vel_coeffs_gen_params):
-		exp_group = list(group_config.values())[0]
-		printer.start_exp_group(exp_group)
-		for exp_params in gen_params.exp_params:
+	for group, group_params in zip(
+		config.inves_vel_coeffs.groups, vel_coeffs_inves_params.exp_groups):
+		printer.start_group(group)
+		group_results = []
+		for exp_params in group_params.exp_params:
 			exp_result = execute_exp(
 				training_data=training_points, 
 				testing_data=testing_points,
 				nn_config=exp_params.nn_params,
 				pso_config=exp_params.pso_params, 
 				data_config=DataPrepConfig())
-			vel_coeffs_exp_results.append(exp_result)
-	
-	
-	fixed_budget_gen_params = gen_fixed_budget_params(config)
-	fixed_budget_exp_results = []
+			group_results.append(exp_result)
+		vel_coeffs_inves_results.exp_group_results.append(
+			GroupResults_VelCoeffs(exp_group_id=group.id, exp_results=group_results)
+		)
+
+	fixed_budget_inves_params = gen_fixed_budget_params(config)
+	fixed_budget_inves_results = InvesResults_FixedBudget(exp_group_results=[])
 	printer.start_inves(config.inves_fixed_budget.metadata)
-	for group_config, gen_params in zip(
-		config.inves_fixed_budget.exp_groups, fixed_budget_gen_params):
-		exp_group = list(group_config.values())[0]
-		printer.start_exp_group(exp_group)
-		for exp_params in gen_params.exp_params:
+	for group, group_params in zip(
+		config.inves_fixed_budget.groups, fixed_budget_inves_params.exp_groups):
+		printer.start_group(group)
+		group_results = []
+		for exp_params in group_params.exp_params:
 			exp_result = execute_exp(
 				training_data=training_points, 
 				testing_data=testing_points,
 				nn_config=exp_params.nn_params,
 				pso_config=exp_params.pso_params,
 				data_config=DataPrepConfig())
-			fixed_budget_exp_results.append(exp_result)
-	
+			group_results.append(exp_result)
+		fixed_budget_inves_results.exp_group_results.append(
+			GroupResults_FixedBudget(exp_group_id=group.id, exp_results=group_results)
+		)
+
 if __name__ == '__main__':
 	#gc.GC_PSO_PRINT = True
 	run_exp_suite()
-

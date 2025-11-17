@@ -1,5 +1,5 @@
 from pso_nn_coupling.nn_trainer_with_pso import NNTrainerUsingPSO
-from pso.pso import PSOConfig
+from pso.pso import PSOParams
 from data_prep.data_prep import *
 from nn.nn import NeuralNetwork
 from nn.entities import *
@@ -20,17 +20,17 @@ data_config = DataPrepConfig(
     norm_factors = NORM_DEFAULT_FACTORS[NormMethod.ZSCORE]
 )
 # Neural Network configuration
-nn_config = NNConfig(
+nn_config = NNParams(
     input_dim = 8,
     layers_sizes = [8, 1],
     activation_functions = [ActFunc.RELU, ActFunc.LINEAR],
     cost_function = CostFunc.MEAN_SQUARED_ERROR
 )
 # PSO configuration
-pso_config = PSOConfig(
-    max_iter = 10,
+pso_config = PSOParams(
+    max_iter = 30,
     swarm_size = 5,
-    informant_count = 2,
+    informant_count = 3,
 
     #max_iter = 20,
     #swarm_size = 10,

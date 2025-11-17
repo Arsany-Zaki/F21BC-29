@@ -1,9 +1,9 @@
 from nn.nn import NeuralNetwork
-from nn.entities import NNConfig
+from nn.entities import NNParams
 from nn.constants import *
 from data_prep.input_data_models import Point
 
-nn = NeuralNetwork(NNConfig(
+nn = NeuralNetwork(NNParams(
     input_dim = 3,
     layers_sizes = [1],
     activation_functions = [ActFunc.LINEAR], 

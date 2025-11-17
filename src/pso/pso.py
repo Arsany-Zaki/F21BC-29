@@ -1,11 +1,11 @@
-from .entities import PSOConfig
+from .entities import PSOParams
 import numpy as np
 from typing import Callable, Tuple
 from pso.constants import *
 from pso.analytics import Analytics_PSO_Run
 
 class PSO:
-    def __init__(self, config: PSOConfig):
+    def __init__(self, config: PSOParams):
         self.analytics = Analytics_PSO_Run()
         self.config = config
         self.rng = np.random.RandomState()

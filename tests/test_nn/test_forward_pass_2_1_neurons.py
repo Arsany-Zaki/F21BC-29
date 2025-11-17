@@ -1,10 +1,10 @@
 from nn.nn import NeuralNetwork
-from nn.entities import NNConfig
+from nn.entities import NNParams
 from nn.constants import *
 from data_prep.input_data_models import Point
 import pytest
 
-config = NNConfig(
+config = NNParams(
     input_dim = 3,
     layers_sizes = [2, 1],
     activation_functions = [ActFunc.RELU, ActFunc.LINEAR], 

@@ -3,7 +3,7 @@ from typing import List
 from pso.constants import *
 
 @dataclass
-class PSOConfig:
+class PSOParams:
     max_iter: int
 
     swarm_size: int

@@ -5,7 +5,7 @@ EXP_SIZE = 10
 import numpy as np
 from pyswarm import pso
 from pso.pso import PSO
-from pso.entities import PSOConfig
+from pso.entities import PSOParams
 from pso.constants import *
 from tabulate import tabulate
 
@@ -70,7 +70,7 @@ def custom_pso():
     for f in functions:
         run_results = []
         for _ in range(EXP_SIZE):
-            config = PSOConfig(
+            config = PSOParams(
                 max_iter=MAX_ITER,
                 swarm_size=SWARM_SIZE,
                 w_inertia=0.5,

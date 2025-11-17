@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
-from pso.entities import PSOConfig
-from nn.nn import NNConfig
+from pso.entities import PSOParams
+from nn.nn import NNParams
 from pso_nn_coupling.nn_trainer_with_pso import NNTrainerUsingPSO
 from pso.constants import *
 
@@ -9,7 +9,7 @@ from pso.constants import *
 # layer0 has 2 neurons, layer1 has 1 neurons
 # input dim is 3
 
-pso_config = PSOConfig(
+pso_config = PSOParams(
     max_iter = 10,
     swarm_size = 10,
     informant_count = 2,
@@ -29,7 +29,7 @@ pso_config = PSOConfig(
     target_fitness = None,
 )
 
-nn_config = NNConfig(
+nn_config = NNParams(
     input_dim = 3,
     layers_sizes = [4, 2, 1],
     activation_functions = [act_func.SIGMOID, act_func.TANH, act_func.LINEAR],

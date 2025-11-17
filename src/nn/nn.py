@@ -3,7 +3,7 @@ import numpy as np
 import math
 from typing import List
 from nn.constants import *
-from nn.entities import NNConfig
+from nn.entities import NNParams
 from data_prep.input_data_models import Point
 
 class Neuron:
@@ -42,7 +42,7 @@ class Layer:
         return self.outputs
 
 class NeuralNetwork:
-    def __init__(self, config: NNConfig):
+    def __init__(self, config: NNParams):
         self.layers_sizes = config.layers_sizes
         self.cost_function = config.cost_function
         self.layers = []
