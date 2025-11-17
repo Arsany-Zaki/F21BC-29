@@ -24,15 +24,17 @@ class NNParamRanges:
 @dataclass
 class GroupConfig:
 	id: str
-	metadata: Dict[str, Any]
 	pso_param_ranges: PSOParamRanges
 	nn_param_ranges: NNParamRanges
 	budget: Optional[int] = None
+	metadata: Dict[str, Any] = None
 
 @dataclass
 class InvesConfig:
-	metadata: Dict[str, Any]
+	type: str
+	id: str
 	groups: List[GroupConfig]
+	metadata: Dict[str, Any] = None
 
 @dataclass
 class AnalysisConfig:
@@ -41,7 +43,7 @@ class AnalysisConfig:
 @dataclass
 class Config:
 	analysis_config: AnalysisConfig
-	inves_vel_coeffs: InvesConfig
-	inves_fixed_budget: InvesConfig
+	investigations: List[InvesConfig]
+
 
 

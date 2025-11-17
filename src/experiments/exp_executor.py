@@ -15,7 +15,7 @@ def _execute_exp_run(
     nn_config: NNParams, 
     pso_config: PSOParams,
     data_config: DataPrepConfig
-) -> RunResult:
+) -> RunResults:
     # Train neural network using PSO
     nn_trainer = NNTrainerUsingPSO(
         training_points=training_data,
@@ -48,7 +48,7 @@ def _execute_exp_run(
     sum_abs_error = sum(abs(pred - target_real)  for pred, target_real in zip(nn_predictions_real_vals, test_target))
     mae = sum_abs_error / len(testing_data)
     
-    return RunResult(
+    return RunResults(
         training_cost=best_training_cost,
         training_time_secs=training_time_secs,
         test_cost=test_cost,

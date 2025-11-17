@@ -7,49 +7,63 @@ class Printer:
 	def __init__(self):
 		pass
 
-	def start_inves(self, metadata: dict[str, str]):
-		print('**' * 4, f"Investigation: {metadata.get('name', 'Unknown')}")
+	def start_inves(self, inves_details: InvesDetails):
+		metadata = inves_details.metadata or {}
+		tab1 = '    '
+		tab2 = '        '
+		print(f"- Investigation (type: {inves_details.inves_type})")
+		print(f"{tab1}id: {inves_details.id}")
+		name = metadata.get('name')
+		if name:
+			print(f"{tab1}name: {name}")
+		desc = metadata.get('description')
+		if desc:
+			print(f"{tab1}description: {desc}")
+		for group_details in inves_details.groups_details:
+			self.group_summary(group_details)
+		print()
 
-	def start_group(self, exp_group: GroupConfig):
-		print('**' * 3, f"Experiment Group: {exp_group.id}")
-		print('  ' * 3, f"Name: {exp_group.metadata.get('name', 'Unknown')}")
-		print('  ' * 3, f"Description: {exp_group.metadata.get('description', 'Unknown')}")
+	def group_summary(self, group_details: GroupDetails):
+		metadata = group_details.metadata or {}
+		tab1 = '    '
+		tab2 = '        '
+		print(f"{tab1}- Group (type: {group_details.inves_type})")
+		print(f"{tab2}id: {group_details.id}")
+		name = metadata.get('name')
+		if name:
+			print(f"{tab2}name: {name}")
+		desc = metadata.get('description')
+		if desc:
+			print(f"{tab2}description: {desc}")
 
-	def start_exp(self, metadata: dict[str, str]):
-		print('**' * 2, f"Investigation: {metadata.get('name', 'Unknown')}")
+	def start_exp(self, exp_details: ExpDetails):
+		print('**' * 2, f"Experiment ID: {exp_details.id}")
+		print('    ', f"PSO Params: {exp_details.pso_params}")
+		print('    ', f"NN Params: {exp_details.nn_params}")
 	
-	def inves_results_vel_coeffs(self, inves_results: InvesResults_VelCoeffs):
-		print('**' * 4, f"Investigation Results Summary (Velocity Coefficients):")
-		for group_result in inves_results.exp_group_results:
-			self.group_results_vel_coeffs(group_result)
+	def inves_details(self, inves_details: InvesDetails):
+		self.start_inves(inves_details)
+		for group_details in inves_details.groups_details:
+			self.group_details(group_details)
 
-	def inves_results_fixed_budget(self, inves_results: InvesResults_FixedBudget):
-		print('**' * 4, f"Investigation Results Summary (Fixed Budget):")
-		for group_result in inves_results.exp_group_results:
-			self.group_results_fixed_budget(group_result)
+	def group_details(self, group_details: GroupDetails):
+		self.start_group(group_details)
+		for i, exp_detail in enumerate(group_details.exps_details):
+			self.start_exp(exp_detail)
+			self.exp_details(exp_detail)
 
-	def group_results_vel_coeffs(self, group_results: GroupResults_VelCoeffs):
-		print('**' * 3, f"Experiment Group Results Summary:")
-		for i, exp_result in enumerate(group_results.exp_results):
-			print('**' * 2, f"Experiment {i + 1}:")
-			self.exp_results(exp_result)
-
-	def group_results_fixed_budget(self, group_results: GroupResults_FixedBudget):
-		print('**' * 3, f"Experiment Group Results Summary:")
-		for i, exp_result in enumerate(group_results.exp_results):
-			print('**' * 2, f"Experiment {i + 1}:")
-			self.exp_results(exp_result)
-
-	def exp_results(self, exp_result: ExpResults):
-		print('**' * 2, "Experiment Result Summary:")
-		print(f"  Average Training Cost: {exp_result.avg_training_cost:.6f} ± {exp_result.std_training_cost:.6f}")
-		print(f"  Average Training Time (secs): {exp_result.avg_training_time_secs:.2f} ± {exp_result.std_training_time_secs:.2f}")
-		print(f"  Average Test Cost: {exp_result.avg_test_cost:.6f} ± {exp_result.std_test_cost:.6f}")
-		print(f"  Average MSE: {exp_result.avg_mse:.6f} ± {exp_result.std_mse:.6f}")
-		print(f"  Average RMSE: {exp_result.avg_rmse:.6f} ± {exp_result.std_rmse:.6f}")
-		print(f"  Average MAE: {exp_result.avg_mae:.6f} ± {exp_result.std_mae:.6f}")
-		print(f"  Average Generalization Ratio: {exp_result.avg_generalization_ratio:.6f} ± {exp_result.std_generalization_ratio:.6f}")
-
+	def exp_details(self, exp_details: ExpDetails):
+		if exp_details.results is None:
+			print('      No results available.')
+			return
+		print('      Experiment Result Summary:')
+		print(f"        - Average Training Cost: {exp_details.results.avg_training_cost:.6f} ± {exp_details.results.std_training_cost:.6f}")
+		print(f"        - Average Training Time (secs): {exp_details.results.avg_training_time_secs:.2f} ± {exp_details.results.std_training_time_secs:.2f}")
+		print(f"        - Average Test Cost: {exp_details.results.avg_test_cost:.6f} ± {exp_details.results.std_test_cost:.6f}")
+		print(f"        - Average MSE: {exp_details.results.avg_mse:.6f} ± {exp_details.results.std_mse:.6f}")
+		print(f"        - Average RMSE: {exp_details.results.avg_rmse:.6f} ± {exp_details.results.std_rmse:.6f}")
+		print(f"        - Average MAE: {exp_details.results.avg_mae:.6f} ± {exp_details.results.std_mae:.6f}")
+		print(f"        - Average Generalization Ratio: {exp_details.results.avg_generalization_ratio:.6f} ± {exp_details.results.std_generalization_ratio:.6f}")
 
 def pso_config_printer(pso: PSOParams):
 	print("  PSOConfig:")

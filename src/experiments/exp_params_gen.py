@@ -1,15 +1,14 @@
 import yaml
-from typing import List
 from dacite import from_dict
 from pso.entities import PSOParams
 from nn.entities import NNParams
 from pso.constants import BoundHandling, InformantSelect
 from nn.constants import ActFunc, CostFunc
 from experiments.entities_yaml import *
-from experiments.entities import *
-from utilities.printer import pso_config_printer, nn_config_printer
+from experiments.entities import RunResults, ExpResults, ExpDetails, GroupDetails, InvesDetails
 from config.paths import * 
 import itertools
+from experiments.constants import InvesType
 
 def _to_enum(enum_cls, value):
 	if isinstance(value, enum_cls):
@@ -78,26 +77,58 @@ def _make_nn_config_grid(nn: NNParamRanges):
 		cost_function=_to_enum(CostFunc, nn.cost_func)
 	)
 
-def gen_vel_coeffs_params(all_config: Config) -> InvesParams:
-	exp_groups = []
-	for group in all_config.inves_vel_coeffs.groups:
-		params = []
+def expand_params(all_config: Config) -> List[InvesDetails]:
+	if not hasattr(all_config, 'investigations') or not all_config.investigations:
+		raise ValueError("Config must contain a non-empty 'investigations' list.")
+	investigations_details = []
+	for inves in all_config.investigations:
+		inves_type = inves.type
+		groups_details = []
+		for group in inves.groups:
+			exps_details = []
+			for pso in _make_pso_config_grid(group.pso_param_ranges, getattr(group, 'budget', None)):
+				for nn in _make_nn_config_grid(group.nn_param_ranges):
+					exp_id = f"{group.id}_pso_{hash(str(pso))}_nn_{hash(str(nn))}"
+					exps_details.append(ExpDetails(
+						id=exp_id,
+						pso_params=pso,
+						nn_params=nn,
+						results=None  # Placeholder, to be filled after experiment run
+					))
+			groups_details.append(GroupDetails(
+				inves_type=inves_type,
+				id=group.id,
+				metadata=group.metadata,
+				exps_details=exps_details
+			))
+		investigations_details.append(InvesDetails(
+			inves_type=inves_type,
+			id=inves.id,
+			metadata=inves.metadata,
+			groups_details=groups_details
+		))
+	return investigations_details
+
+def gen_vel_coeffs_params(all_config: Config) -> InvesDetails:
+	groups_params = []
+	for group in all_config.groups:
+		exps_params = []
 		for pso in _make_pso_config_grid(group.pso_param_ranges):
 			for nn in _make_nn_config_grid(group.nn_param_ranges):
-				params.append(ExpParams(pso_params=pso, nn_params=nn))
-		exp_groups.append(GroupParams(exp_params=params))
-	return InvesParams(exp_groups=exp_groups)
+				exps_params.append(ExpDetails(pso_params=pso, nn_params=nn))
+		groups_params.append(GroupDetails(id=group.id, exps_params=exps_params))
+	return InvesDetails(inves_type=InvesType(all_config.type), id=all_config.id, groups_params=groups_params)
 
-def gen_fixed_budget_params(all_config: Config) -> InvesParams:
-	exp_groups = []
-	for group in all_config.inves_fixed_budget.groups:
-		params = []
+def gen_fixed_budget_params(all_config: Config) -> InvesDetails:
+	groups_params = []
+	for group in all_config.groups:
+		exps_params = []
 		budget = getattr(group, 'budget', None)
 		for pso in _make_pso_config_grid(group.pso_param_ranges, budget=budget):
 			for nn in _make_nn_config_grid(group.nn_param_ranges):
-				params.append(ExpParams(pso_params=pso, nn_params=nn))
-		exp_groups.append(GroupParams(exp_params=params))
-	return InvesParams(exp_groups=exp_groups)
+				exps_params.append(ExpDetails(pso_params=pso, nn_params=nn))
+		groups_params.append(GroupDetails(id=group.id, exps_params=exps_params))
+	return InvesDetails(inves_type=InvesType(all_config.type), id=all_config.id, groups_params=groups_params)
 
 def load_config(path: str) -> Config:
 	with open(path, 'r') as f:

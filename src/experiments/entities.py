@@ -8,20 +8,7 @@ from nn.entities import NNParams
 from dataclasses import dataclass
 
 @dataclass
-class ExpParams:
-	pso_params: PSOParams
-	nn_params: NNParams
-
-@dataclass
-class GroupParams:
-	exp_params: list[ExpParams]
-
-@dataclass
-class InvesParams:
-    exp_groups: list[GroupParams]
-
-@dataclass
-class RunResult:
+class RunResults:
     training_cost: float
     training_time_secs: float
     test_cost: float
@@ -32,7 +19,7 @@ class RunResult:
 
 @dataclass
 class ExpResults:
-    exp_run_results: list[RunResult]
+    exp_run_results: list[RunResults]
     avg_training_cost: float
     avg_training_time_secs: float
     avg_test_cost: float
@@ -47,26 +34,28 @@ class ExpResults:
     std_rmse: float
     std_mae: float
     std_generalization_ratio: float
-
+    
 @dataclass
 class ExpDetails:
-    exp_params: ExpParams
-    exp_results: ExpResults
+    id: str
+    pso_params: PSOParams
+    nn_params: NNParams
+    results: ExpResults
 
 @dataclass
-class GroupResults_VelCoeffs:
-    exp_group_id: str
-    exp_results: list[ExpResults]
+class GroupDetails:
+    inves_type: str
+    id: str
+    metadata: dict[str, str]
+    exps_details: list[ExpDetails]
 
 @dataclass
-class GroupResults_FixedBudget:
-    exp_group_id: str
-    exp_results: list[ExpResults]
+class InvesDetails:
+    inves_type: str
+    id: str
+    metadata: dict[str, str]
+    groups_details: list[GroupDetails]
 
-@dataclass
-class InvesResults_VelCoeffs:
-    exp_group_results: list[GroupResults_VelCoeffs]
 
-@dataclass
-class InvesResults_FixedBudget:
-    exp_group_results: list[GroupResults_FixedBudget]
+
+
