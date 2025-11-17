@@ -4,13 +4,11 @@ from nn.entities import NNParams
 from experiments.entities import ExpDetails, InvesDetails, GroupDetails
 from pso.constants import BoundHandling, InformantSelect
 from nn.constants import ActFunc, CostFunc
-from experiments.entities_yaml import PSOParamRanges, NNParamRanges, GroupConfig, InvesConfig, Config
-from experiments.entities import RunResults, ExpResults
+from experiments.entities_yaml import Config
 from config.paths import *
 from experiments.constants import InvesType
 
 def _expand_range(param_range):
-    # Handle [start, end, step] as a range, else return as list
     import numpy as np
     if isinstance(param_range, (list, tuple)):
         if len(param_range) == 3 and all(isinstance(x, (int, float)) for x in param_range):
@@ -27,8 +25,6 @@ def _expand_range(param_range):
         return [param_range]
 
 def _make_nn_config_grid(nn_ranges):
-    # Construct NNParams with required arguments from nn_ranges
-    # Map act_funcs and cost_func from NNParamRanges to NNParams, converting to enums
     activation_functions = [ActFunc(a) if not isinstance(a, ActFunc) else a for a in getattr(nn_ranges, 'act_funcs', [])]
     cost_function = CostFunc(getattr(nn_ranges, 'cost_func', None)) if getattr(nn_ranges, 'cost_func', None) is not None else None
     return [NNParams(
@@ -39,7 +35,6 @@ def _make_nn_config_grid(nn_ranges):
     )]
 
 def _to_enum(enum_class, value):
-    # Dummy implementation for converting to enum
     return enum_class(value)
 
 def expand_params(all_config: Config) -> List[InvesDetails]:

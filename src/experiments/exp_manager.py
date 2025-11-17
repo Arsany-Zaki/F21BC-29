@@ -1,4 +1,4 @@
-from experiments.exp_params_gen import *
+from experiments.param_comb_gen import *
 from config.paths import *
 from exp_executor import *
 from data_prep.data_prep import *
@@ -27,7 +27,6 @@ def run_exp_suite():
 	for inves_details in inves_details_list:
 		for group_details in inves_details.groups_details:
 			for idx, exp_detail in enumerate(group_details.exps_details, 1):
-				printer.print_exp_params(exp_detail, idx)
 				exp_result = execute_exp(
 					training_data=training_points,
 					testing_data=testing_points,
