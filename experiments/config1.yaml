@@ -41,13 +41,13 @@ investigations:
         budget: 50 
         pso_param_ranges:
           # swarm range to be explored
-          swarm_size: [5, 10, 2] # (min, max, step)
+          swarm_size: [5, 10, 3] # (min, max, step)
           # Iterations calculated as fitness_run_budget / swarm_size
           inertia:  0.5
           personal: 1.4
           global_c:   1.4
           social:   1.4
-          informants_size: [2, 3, 5]
+          informants_size: [2, 3]
           informant_selection: 'static_random'
           boundary_handling: 'reflect'
           jump_size: 1.0
@@ -63,13 +63,13 @@ investigations:
         budget: 50 
         pso_param_ranges:
           # swarm range to be explored
-          swarm_size: [5, 10, 2] # (min, max, step)
+          swarm_size: [5, 5, 1] # (min, max, step)
           # Iterations calculated as fitness_run_budget / swarm_size
           inertia:  0.5
           personal: 1.0
           global_c:   1.0
           social:   1.0
-          informants_size: [2, 3, 5]
+          informants_size: [4]
           informant_selection: 'static_random'
           boundary_handling: 'reflect'
           jump_size: 1.0

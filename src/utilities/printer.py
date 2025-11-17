@@ -1,9 +1,39 @@
+from tabulate import tabulate
 from pso.entities import PSOParams
 from nn.entities import NNParams
 from experiments.entities import *
 from experiments.entities_yaml import GroupConfig
 
 class Printer:
+	def print_exp_params(self, exp_detail, idx):
+		print("\n--- Experiment Parameters Before Execution ---")
+		self.exp_details_summary(exp_detail, idx)
+	def print_summary(self, inves_details_list):
+		for inves_details in inves_details_list:
+			metadata = inves_details.metadata or {}
+			print(f"- Investigation (type: {inves_details.inves_type})")
+			print(f"    id: {inves_details.id}")
+			name = metadata.get('name')
+			if name:
+				print(f"    name: {name}")
+			desc = metadata.get('description')
+			if desc:
+				print(f"    description: {desc}")
+			for group_details in inves_details.groups_details:
+				gmeta = group_details.metadata or {}
+				print(f"    - Group (type: {group_details.inves_type})")
+				print(f"        id: {group_details.id}")
+				gname = gmeta.get('name')
+				if gname:
+					print(f"        name: {gname}")
+				gdesc = gmeta.get('description')
+				if gdesc:
+					print(f"        description: {gdesc}")
+
+	def print_full_results(self, inves_details_list):
+		print("\n===== FULL EXPERIMENT RESULTS =====\n")
+		for inves_details in inves_details_list:
+			self.start_inves(inves_details)
 	def __init__(self):
 		pass
 
@@ -35,6 +65,79 @@ class Printer:
 		desc = metadata.get('description')
 		if desc:
 			print(f"{tab2}description: {desc}")
+		for i, exp_detail in enumerate(group_details.exps_details, 1):
+			self.exp_details_summary(exp_detail, i)
+
+	def exp_details_summary(self, exp_detail, idx):
+		tab2 = '        '
+		tab3 = '            '
+		print(f"{tab2}- Experiment {idx}")
+		print(f"{tab3}exp params:")
+		# Print PSO params
+		pso = exp_detail.pso_params
+		# PSO params split into 3 tables, each with two rows (labels, values)
+		pso = exp_detail.pso_params
+		pso_dict = {k: v for k, v in pso.__dict__.items() if k not in ("boundary_min", "boundary_max")}
+		# Merge Core and Coefficients into one table
+		merged_keys = ["max_iter", "swarm_size", "jump_size", "target_fitness", "w_inertia", "c_personal", "c_social", "c_global"]
+		labels = [k for k in merged_keys]
+		values = [pso_dict.get(k, "-") for k in merged_keys]
+		table_data = [labels, values]
+		group_label = "PSO - Core & Coefficients:"
+		print(f"{tab3}{group_label}")
+		table_str = tabulate(table_data, tablefmt="fancy_grid", showindex=False)
+		table_str = "\n".join(f"{tab3}{line}" for line in table_str.splitlines())
+		print(table_str)
+
+		# Print Other group as before
+		other_keys = ["informant_selection", "informant_count", "boundary_handling"]
+		labels = [k for k in other_keys]
+		values = [pso_dict.get(k, "-") for k in other_keys]
+		table_data = [labels, values]
+		group_label = "PSO - Other:"
+		print(f"{tab3}{group_label}")
+		table_str = tabulate(table_data, tablefmt="fancy_grid", showindex=False)
+		table_str = "\n".join(f"{tab3}{line}" for line in table_str.splitlines())
+		print(table_str)
+
+		# Grouped NN params
+		nn = exp_detail.nn_params
+		nn_dict = nn.__dict__
+		# Merge NN Architecture and Functions into one table with two rows, using tabulate headers for alignment
+		nn_fields = ["input_dim", "layers_sizes", "activation_functions", "cost_function"]
+		values = []
+		for k in nn_fields:
+			v = nn_dict.get(k, "-")
+			# Format lists and enums nicely
+			if isinstance(v, list):
+				v = str([str(x) for x in v])
+			elif hasattr(v, 'value'):
+				v = v.value
+			values.append(v)
+		group_label = "NN Parameters:"
+		print(f"{tab3}{group_label}")
+		table_str = tabulate([values], headers=nn_fields, tablefmt="fancy_grid", showindex=False)
+		table_str = "\n".join(f"{tab3}{line}" for line in table_str.splitlines())
+		print(table_str)
+		print(f"{tab3}exp results:")
+		if exp_detail.results is not None:
+			# Prepare mean ± std table for main metrics
+			res = exp_detail.results
+			metrics = [
+				("training_cost", res.avg_training_cost, res.std_training_cost),
+				("training_time_secs", res.avg_training_time_secs, res.std_training_time_secs),
+				("test_cost", res.avg_test_cost, res.std_test_cost),
+				("mse", res.avg_mse, res.std_mse),
+				("rmse", res.avg_rmse, res.std_rmse),
+				("mae", res.avg_mae, res.std_mae),
+				("generalization_ratio", res.avg_generalization_ratio, res.std_generalization_ratio),
+			]
+			table_data = [[name, f"{mean:.4f} ± {std:.4f}"] for name, mean, std in metrics]
+			table_str = tabulate(table_data, headers=["Metric", "Value (mean ± std)"], tablefmt="fancy_grid")
+			table_str = "\n".join(f"{tab3}{line}" for line in table_str.splitlines())
+			print(table_str)
+		else:
+			print(f"{tab3}  No results.")
 
 	def start_exp(self, exp_details: ExpDetails):
 		print('**' * 2, f"Experiment ID: {exp_details.id}")

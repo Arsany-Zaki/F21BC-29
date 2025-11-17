@@ -1,154 +1,177 @@
-import yaml
-from dacite import from_dict
+from typing import List
 from pso.entities import PSOParams
 from nn.entities import NNParams
+from experiments.entities import ExpDetails, InvesDetails, GroupDetails
 from pso.constants import BoundHandling, InformantSelect
 from nn.constants import ActFunc, CostFunc
-from experiments.entities_yaml import *
-from experiments.entities import RunResults, ExpResults, ExpDetails, GroupDetails, InvesDetails
-from config.paths import * 
-import itertools
+from experiments.entities_yaml import PSOParamRanges, NNParamRanges, GroupConfig, InvesConfig, Config
+from experiments.entities import RunResults, ExpResults
+from config.paths import *
 from experiments.constants import InvesType
 
-def _to_enum(enum_cls, value):
-	if isinstance(value, enum_cls):
-		return value
-	if isinstance(value, str):
-		for e in enum_cls:
-			if e.value == value:
-				return e
-	raise ValueError(f"Cannot convert {value} to {enum_cls}")
+def _expand_range(param_range):
+    # Handle [start, end, step] as a range, else return as list
+    import numpy as np
+    if isinstance(param_range, (list, tuple)):
+        if len(param_range) == 3 and all(isinstance(x, (int, float)) for x in param_range):
+            start, end, step = param_range
+            if start == end:
+                return [start]
+            else:
+                # Use np.arange with rounding to avoid floating point issues
+                arr = np.arange(start, end + step/2, step)
+                return [float(round(x, 8)) for x in arr]
+        else:
+            return list(param_range)
+    else:
+        return [param_range]
 
-def _expand_range(val):
-	if isinstance(val, list) and len(val) == 3:
-		start, stop, step = val
-		# inclusive range for floats
-		n = int(round((stop - start) / step)) + 1
-		return [round(start + i * step, 10) for i in range(n)]
-	elif isinstance(val, list):
-		return val
-	else:
-		return [val]
+def _make_nn_config_grid(nn_ranges):
+    # Construct NNParams with required arguments from nn_ranges
+    # Map act_funcs and cost_func from NNParamRanges to NNParams, converting to enums
+    activation_functions = [ActFunc(a) if not isinstance(a, ActFunc) else a for a in getattr(nn_ranges, 'act_funcs', [])]
+    cost_function = CostFunc(getattr(nn_ranges, 'cost_func', None)) if getattr(nn_ranges, 'cost_func', None) is not None else None
+    return [NNParams(
+        input_dim=nn_ranges.input_dim,
+        layers_sizes=nn_ranges.layers_sizes,
+        activation_functions=activation_functions,
+        cost_function=cost_function
+    )]
 
-
-def _make_pso_config_grid(pso: PSOParamRanges, budget: int = None):
-	inertia_range = _expand_range(pso.inertia)
-	personal_range = _expand_range(pso.personal)
-	global_c_range = _expand_range(pso.global_c)
-	social_range = _expand_range(pso.social)
-	swarm_size_range = _expand_range(pso.swarm_size)
-	informants_size_range = _expand_range(pso.informants_size)
-	# For fixed budget, ignore iterations_count and compute from budget
-	if budget is not None:
-		iter_count = [None]  # will be calculated per combo
-	else:
-		iter_count = [pso.iterations_count] if pso.iterations_count is not None else [None]
-
-	combos = itertools.product(
-		inertia_range, personal_range, global_c_range, social_range, swarm_size_range, informants_size_range, iter_count
-	)
-	for inertia, personal, global_c, social, swarm_size, informants_size, iterations_count in combos:
-		if budget is not None:
-			max_iter = int(budget // swarm_size)
-		else:
-			max_iter = iterations_count if iterations_count is not None else 0
-		yield PSOParams(
-			max_iter=max_iter,
-			swarm_size=swarm_size,
-			w_inertia=inertia,
-			c_personal=personal,
-			c_social=social,
-			c_global=global_c,
-			jump_size=pso.jump_size,
-			informant_selection=_to_enum(InformantSelect, pso.informant_selection),
-			informant_count=informants_size,
-			boundary_handling=_to_enum(BoundHandling, pso.boundary_handling),
-			dims=None,
-			boundary_min=[],
-			boundary_max=[],
-			target_fitness=None
-		)
-
-def _make_nn_config_grid(nn: NNParamRanges):
-	yield NNParams(
-		input_dim=nn.input_dim,
-		layers_sizes=nn.layers_sizes,
-		activation_functions=[_to_enum(ActFunc, a) for a in nn.act_funcs],
-		cost_function=_to_enum(CostFunc, nn.cost_func)
-	)
+def _to_enum(enum_class, value):
+    # Dummy implementation for converting to enum
+    return enum_class(value)
 
 def expand_params(all_config: Config) -> List[InvesDetails]:
-	if not hasattr(all_config, 'investigations') or not all_config.investigations:
-		raise ValueError("Config must contain a non-empty 'investigations' list.")
-	investigations_details = []
-	for inves in all_config.investigations:
-		inves_type = inves.type
-		groups_details = []
-		for group in inves.groups:
-			exps_details = []
-			for pso in _make_pso_config_grid(group.pso_param_ranges, getattr(group, 'budget', None)):
-				for nn in _make_nn_config_grid(group.nn_param_ranges):
-					exp_id = f"{group.id}_pso_{hash(str(pso))}_nn_{hash(str(nn))}"
-					exps_details.append(ExpDetails(
-						id=exp_id,
-						pso_params=pso,
-						nn_params=nn,
-						results=None  # Placeholder, to be filled after experiment run
-					))
-			groups_details.append(GroupDetails(
-				inves_type=inves_type,
-				id=group.id,
-				metadata=group.metadata,
-				exps_details=exps_details
-			))
-		investigations_details.append(InvesDetails(
-			inves_type=inves_type,
-			id=inves.id,
-			metadata=inves.metadata,
-			groups_details=groups_details
-		))
-	return investigations_details
+    if not hasattr(all_config, 'investigations') or not all_config.investigations:
+        return []
+    investigations_details = []
+    for inves in all_config.investigations:
+        inves_type = InvesType(inves.type)
+        groups_details = []
+        for group in inves.groups:
+            exps_details = []
+            pso_ranges = group.pso_param_ranges
+            nn_ranges = group.nn_param_ranges
+            if inves_type == InvesType.VEL_COEFFS:
+                exps_details.extend(_expand_vel_coeffs(group, pso_ranges, nn_ranges))
+            elif inves_type == InvesType.FIXED_BUDGET:
+                exps_details.extend(_expand_fixed_budget(group, pso_ranges, nn_ranges))
+            else:
+                raise ValueError(f"Unknown investigation type: {inves_type}")
+            groups_details.append(GroupDetails(
+                inves_type=inves_type,
+                id=group.id,
+                metadata=group.metadata,
+                exps_details=exps_details
+            ))
+        investigations_details.append(InvesDetails(
+            inves_type=inves_type,
+            id=inves.id,
+            metadata=inves.metadata,
+            groups_details=groups_details
+        ))
+    return investigations_details
 
-def gen_vel_coeffs_params(all_config: Config) -> InvesDetails:
-	groups_params = []
-	for group in all_config.groups:
-		exps_params = []
-		for pso in _make_pso_config_grid(group.pso_param_ranges):
-			for nn in _make_nn_config_grid(group.nn_param_ranges):
-				exps_params.append(ExpDetails(pso_params=pso, nn_params=nn))
-		groups_params.append(GroupDetails(id=group.id, exps_params=exps_params))
-	return InvesDetails(inves_type=InvesType(all_config.type), id=all_config.id, groups_params=groups_params)
+def _expand_vel_coeffs(group, pso_ranges, nn_ranges):
+    exps_details = []
+    inertia_range = _expand_range(pso_ranges.inertia)
+    personal_range = _expand_range(pso_ranges.personal)
+    global_c_range = _expand_range(pso_ranges.global_c)
+    social_range = _expand_range(pso_ranges.social)
+    swarm_size = int(_expand_range(pso_ranges.swarm_size)[0])
+    informants_size = int(_expand_range(pso_ranges.informants_size)[0])
+    iter_count = pso_ranges.iterations_count if pso_ranges.iterations_count is not None else 0
+    dims = getattr(nn_ranges, 'input_dim', 1) or 1
+    if not isinstance(dims, int) or dims < 1:
+        raise ValueError(f"Invalid dims for PSO: {dims}. Must be a positive integer.")
+    boundary_min = [0.0] * dims
+    boundary_max = [1.0] * dims
+    if not (isinstance(boundary_min, list) and isinstance(boundary_max, list)):
+        raise ValueError(f"boundary_min and boundary_max must be lists, got {type(boundary_min)}, {type(boundary_max)}")
+    if len(boundary_min) != dims or len(boundary_max) != dims:
+        raise ValueError(f"boundary_min and boundary_max must have length equal to dims ({dims}), got {len(boundary_min)}, {len(boundary_max)}")
+    for inertia in inertia_range:
+        for personal in personal_range:
+            for global_c in global_c_range:
+                for social in social_range:
+                    pso = PSOParams(
+                        max_iter=int(iter_count),
+                        swarm_size=swarm_size,
+                        w_inertia=inertia,
+                        c_personal=personal,
+                        c_social=social,
+                        c_global=global_c,
+                        jump_size=pso_ranges.jump_size,
+                        informant_selection=_to_enum(InformantSelect, pso_ranges.informant_selection),
+                        informant_count=informants_size,
+                        boundary_handling=_to_enum(BoundHandling, pso_ranges.boundary_handling),
+                        dims=int(dims),
+                        boundary_min=boundary_min,
+                        boundary_max=boundary_max,
+                        target_fitness=None
+                    )
+                    for nn in _make_nn_config_grid(nn_ranges):
+                        exp_id = f"{group.id}_pso_{hash(str(pso))}_nn_{hash(str(nn))}"
+                        exps_details.append(ExpDetails(
+                            id=exp_id,
+                            pso_params=pso,
+                            nn_params=nn,
+                            results=None
+                        ))
+    return exps_details
 
-def gen_fixed_budget_params(all_config: Config) -> InvesDetails:
-	groups_params = []
-	for group in all_config.groups:
-		exps_params = []
-		budget = getattr(group, 'budget', None)
-		for pso in _make_pso_config_grid(group.pso_param_ranges, budget=budget):
-			for nn in _make_nn_config_grid(group.nn_param_ranges):
-				exps_params.append(ExpDetails(pso_params=pso, nn_params=nn))
-		groups_params.append(GroupDetails(id=group.id, exps_params=exps_params))
-	return InvesDetails(inves_type=InvesType(all_config.type), id=all_config.id, groups_params=groups_params)
+def _expand_fixed_budget(group, pso_ranges, nn_ranges):
+    exps_details = []
+    inertia = _expand_range(pso_ranges.inertia)[0]
+    personal = _expand_range(pso_ranges.personal)[0]
+    global_c = _expand_range(pso_ranges.global_c)[0]
+    social = _expand_range(pso_ranges.social)[0]
+    swarm_size_range = _expand_range(pso_ranges.swarm_size)
+    informants_size_range = _expand_range(pso_ranges.informants_size)
+    budget = getattr(group, 'budget', None)
+    dims = getattr(nn_ranges, 'input_dim', 1) or 1
+    if not isinstance(dims, int) or dims < 1:
+        raise ValueError(f"Invalid dims for PSO: {dims}. Must be a positive integer.")
+    boundary_min = [0.0] * dims
+    boundary_max = [1.0] * dims
+    if not (isinstance(boundary_min, list) and isinstance(boundary_max, list)):
+        raise ValueError(f"boundary_min and boundary_max must be lists, got {type(boundary_min)}, {type(boundary_max)}")
+    if len(boundary_min) != dims or len(boundary_max) != dims:
+        raise ValueError(f"boundary_min and boundary_max must have length equal to dims ({dims}), got {len(boundary_min)}, {len(boundary_max)}")
+    # Calculate (swarm_size, max_iter) pairs
+    swarm_iter_pairs = [(int(swarm_size), int(budget // swarm_size) if budget is not None else 0)
+                       for swarm_size in swarm_size_range]
+    # Pair each with the corresponding informant_size (by index)
+    n = min(len(swarm_iter_pairs), len(informants_size_range))
+    for i in range(n):
+        swarm_size, max_iter = swarm_iter_pairs[i]
+        informants_size = int(informants_size_range[i])
+        pso = PSOParams(
+            max_iter=int(max_iter),
+            swarm_size=swarm_size,
+            w_inertia=inertia,
+            c_personal=personal,
+            c_social=social,
+            c_global=global_c,
+            jump_size=pso_ranges.jump_size,
+            informant_selection=_to_enum(InformantSelect, pso_ranges.informant_selection),
+            informant_count=informants_size,
+            boundary_handling=_to_enum(BoundHandling, pso_ranges.boundary_handling),
+            dims=int(dims),
+            boundary_min=boundary_min,
+            boundary_max=boundary_max,
+            target_fitness=None
+        )
+        for nn in _make_nn_config_grid(nn_ranges):
+            exp_id = f"{group.id}_pso_{hash(str(pso))}_nn_{hash(str(nn))}"
+            exps_details.append(ExpDetails(
+                id=exp_id,
+                pso_params=pso,
+                nn_params=nn,
+                results=None
+            ))
+    return exps_details
 
-def load_config(path: str) -> Config:
-	with open(path, 'r') as f:
-		config_dict = yaml.safe_load(f)
-	return from_dict(data_class=Config, data=config_dict)
-
-def float_range(x, y, z):
-	vals = []
-	v = x
-	while v <= y + 1e-10:
-		vals.append(round(v, 10))
-		v += z
-	return vals
-
-def _expand_range(val):
-	if isinstance(val, list) and len(val) == 3:
-		return float_range(val[0], val[1], val[2])
-	elif isinstance(val, list):
-		return val
-	else:
-		return [val]
 
 
