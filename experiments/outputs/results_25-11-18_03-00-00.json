@@ -1,0 +1,3357 @@
+[
+  {
+    "inves_type": "vel_coeffs",
+    "id": "vel_coeffs_inves_1",
+    "metadata": {
+      "name": "Velocity Coeffs Effect"
+    },
+    "groups_details": [
+      {
+        "inves_type": "vel_coeffs",
+        "id": "vel_coeffs_group_1",
+        "metadata": {
+          "name": "Velocity Coeffs Experiments with small swarm",
+          "description": "Experiment group with small swarm and NN having 2 hidden layers"
+        },
+        "exps_details": [
+          {
+            "id": "vel_coeffs_group_1_pso_-5227809963332333153_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 0.8,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.238337209980271,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.1405577292623403,
+                  "mse": 1529.7858849318177,
+                  "rmse": 39.11247735610489,
+                  "mae": 36.017179321221505,
+                  "generalization_ratio": 0.9210396974831367
+                }
+              ],
+              "avg_training_cost": 1.238337209980271,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.1405577292623403,
+              "avg_mse": 1529.7858849318177,
+              "avg_rmse": 39.11247735610489,
+              "avg_mae": 36.017179321221505,
+              "avg_generalization_ratio": 0.9210396974831367,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_1102623801754728422_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 0.9,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.3226139069611271,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.2476528399358529,
+                  "mse": 1519.7097587513867,
+                  "rmse": 38.983454936054436,
+                  "mae": 35.87815763504998,
+                  "generalization_ratio": 0.9433235454196102
+                }
+              ],
+              "avg_training_cost": 1.3226139069611271,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.2476528399358529,
+              "avg_mse": 1519.7097587513867,
+              "avg_rmse": 38.983454936054436,
+              "avg_mae": 35.87815763504998,
+              "avg_generalization_ratio": 0.9433235454196102,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_1815247482177409048_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 1.0,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.0105071563093855,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.8331662319676407,
+                  "mse": 1526.570394857971,
+                  "rmse": 39.07135005164233,
+                  "mae": 35.91319906611029,
+                  "generalization_ratio": 0.82450304954847
+                }
+              ],
+              "avg_training_cost": 1.0105071563093855,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.8331662319676407,
+              "avg_mse": 1526.570394857971,
+              "avg_rmse": 39.07135005164233,
+              "avg_mae": 35.91319906611029,
+              "avg_generalization_ratio": 0.82450304954847,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-3551251659199829171_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 0.8,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.1815903811256652,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.0403069147224175,
+                  "mse": 1539.6031420508589,
+                  "rmse": 39.23777697641469,
+                  "mae": 36.02854041236932,
+                  "generalization_ratio": 0.8804294037425633
+                }
+              ],
+              "avg_training_cost": 1.1815903811256652,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.0403069147224175,
+              "avg_mse": 1539.6031420508589,
+              "avg_rmse": 39.23777697641469,
+              "avg_mae": 36.02854041236932,
+              "avg_generalization_ratio": 0.8804294037425633,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_2757873766911591705_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 0.9,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.8450358249346264,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.0592200187979532,
+                  "mse": 1502.8574956681803,
+                  "rmse": 38.76670602034922,
+                  "mae": 35.64986674309341,
+                  "generalization_ratio": 1.116086739871794
+                }
+              ],
+              "avg_training_cost": 1.8450358249346264,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.0592200187979532,
+              "avg_mse": 1502.8574956681803,
+              "avg_rmse": 38.76670602034922,
+              "avg_mae": 35.64986674309341,
+              "avg_generalization_ratio": 1.116086739871794,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_3934100895942755255_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 1.0,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.9855771804583583,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.0462505651330554,
+                  "mse": 1557.214809889465,
+                  "rmse": 39.46156116893331,
+                  "mae": 36.311638436155555,
+                  "generalization_ratio": 1.061561271788456
+                }
+              ],
+              "avg_training_cost": 0.9855771804583583,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.0462505651330554,
+              "avg_mse": 1557.214809889465,
+              "avg_rmse": 39.46156116893331,
+              "avg_mae": 36.311638436155555,
+              "avg_generalization_ratio": 1.061561271788456,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-6906419447155518837_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 0.8,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.121017722576717,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.2607383268639407,
+                  "mse": 1519.6123607822087,
+                  "rmse": 38.98220569416524,
+                  "mae": 35.873625893881524,
+                  "generalization_ratio": 1.065874321935172
+                }
+              ],
+              "avg_training_cost": 2.121017722576717,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.2607383268639407,
+              "avg_mse": 1519.6123607822087,
+              "avg_rmse": 38.98220569416524,
+              "avg_mae": 35.873625893881524,
+              "avg_generalization_ratio": 1.065874321935172,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_7674225348019924546_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 0.9,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.4930029923346406,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.400473262841056,
+                  "mse": 1528.7934004771264,
+                  "rmse": 39.09978772931033,
+                  "mae": 35.853514355414816,
+                  "generalization_ratio": 0.9380244179223688
+                }
+              ],
+              "avg_training_cost": 1.4930029923346406,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.400473262841056,
+              "avg_mse": 1528.7934004771264,
+              "avg_rmse": 39.09978772931033,
+              "avg_mae": 35.853514355414816,
+              "avg_generalization_ratio": 0.9380244179223688,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-5678707556052524081_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.8,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.6107852564379705,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.5881759150652346,
+                  "mse": 1540.351083893781,
+                  "rmse": 39.247306708789345,
+                  "mae": 36.002258747313626,
+                  "generalization_ratio": 0.9859637768086272
+                }
+              ],
+              "avg_training_cost": 1.6107852564379705,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.5881759150652346,
+              "avg_mse": 1540.351083893781,
+              "avg_rmse": 39.247306708789345,
+              "avg_mae": 36.002258747313626,
+              "avg_generalization_ratio": 0.9859637768086272,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_1253963515430839727_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 0.8,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.104302852284205,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.1196982356314842,
+                  "mse": 1541.1130803548824,
+                  "rmse": 39.257013135933846,
+                  "mae": 36.05001446882669,
+                  "generalization_ratio": 1.0139412692047607
+                }
+              ],
+              "avg_training_cost": 1.104302852284205,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.1196982356314842,
+              "avg_mse": 1541.1130803548824,
+              "avg_rmse": 39.257013135933846,
+              "avg_mae": 36.05001446882669,
+              "avg_generalization_ratio": 1.0139412692047607,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_2149586560938961170_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 0.9,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.3363390304887917,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.1647810725042362,
+                  "mse": 1540.5232532059424,
+                  "rmse": 39.2495000376558,
+                  "mae": 36.05847905510701,
+                  "generalization_ratio": 0.8716209329590524
+                }
+              ],
+              "avg_training_cost": 1.3363390304887917,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.1647810725042362,
+              "avg_mse": 1540.5232532059424,
+              "avg_rmse": 39.2495000376558,
+              "avg_mae": 36.05847905510701,
+              "avg_generalization_ratio": 0.8716209329590524,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-8691828333230570960_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 1.0,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.8673675917234088,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.8001231401131761,
+                  "mse": 1538.5043498385328,
+                  "rmse": 39.22377276395697,
+                  "mae": 36.16555088974059,
+                  "generalization_ratio": 0.9224729488951484
+                }
+              ],
+              "avg_training_cost": 0.8673675917234088,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.8001231401131761,
+              "avg_mse": 1538.5043498385328,
+              "avg_rmse": 39.22377276395697,
+              "avg_mae": 36.16555088974059,
+              "avg_generalization_ratio": 0.9224729488951484,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-6659227330341087920_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 0.8,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.9225066907190284,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.8488381432289938,
+                  "mse": 1545.7634344673488,
+                  "rmse": 39.31619811817197,
+                  "mae": 36.133107684432176,
+                  "generalization_ratio": 0.9201430751330213
+                }
+              ],
+              "avg_training_cost": 0.9225066907190284,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.8488381432289938,
+              "avg_mse": 1545.7634344673488,
+              "avg_rmse": 39.31619811817197,
+              "avg_mae": 36.133107684432176,
+              "avg_generalization_ratio": 0.9201430751330213,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-1955591760122345360_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 0.9,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.000869838473837,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.1000378939182793,
+                  "mse": 1520.6062104105472,
+                  "rmse": 38.99495108870567,
+                  "mae": 35.89229782229056,
+                  "generalization_ratio": 1.0990818702216638
+                }
+              ],
+              "avg_training_cost": 1.000869838473837,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.1000378939182793,
+              "avg_mse": 1520.6062104105472,
+              "avg_rmse": 38.99495108870567,
+              "avg_mae": 35.89229782229056,
+              "avg_generalization_ratio": 1.0990818702216638,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_1626082926563004826_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 1.0,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.8689121492120307,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.8833445532070942,
+                  "mse": 1517.970145961706,
+                  "rmse": 38.96113635357298,
+                  "mae": 35.79889797956844,
+                  "generalization_ratio": 1.0166097389801159
+                }
+              ],
+              "avg_training_cost": 0.8689121492120307,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.8833445532070942,
+              "avg_mse": 1517.970145961706,
+              "avg_rmse": 38.96113635357298,
+              "avg_mae": 35.79889797956844,
+              "avg_generalization_ratio": 1.0166097389801159,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-2966674388917558922_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 0.8,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.4691632385695523,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.6467029396925452,
+                  "mse": 1526.8454308453688,
+                  "rmse": 39.07486955634489,
+                  "mae": 35.82016996938435,
+                  "generalization_ratio": 1.1208440944219746
+                }
+              ],
+              "avg_training_cost": 1.4691632385695523,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.6467029396925452,
+              "avg_mse": 1526.8454308453688,
+              "avg_rmse": 39.07486955634489,
+              "avg_mae": 35.82016996938435,
+              "avg_generalization_ratio": 1.1208440944219746,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_7993878788179062927_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 0.9,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.1658217427324766,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.965245131610659,
+                  "mse": 1529.1659857486118,
+                  "rmse": 39.10455198245611,
+                  "mae": 35.983583705399795,
+                  "generalization_ratio": 0.9073900648588175
+                }
+              ],
+              "avg_training_cost": 2.1658217427324766,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.965245131610659,
+              "avg_mse": 1529.1659857486118,
+              "avg_rmse": 39.10455198245611,
+              "avg_mae": 35.983583705399795,
+              "avg_generalization_ratio": 0.9073900648588175,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-4972774010687265465_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 0.9,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.5179173447858654,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.6284174331657209,
+                  "mse": 1525.3627719019955,
+                  "rmse": 39.055892921580934,
+                  "mae": 35.96927640266469,
+                  "generalization_ratio": 1.0727971709127837
+                }
+              ],
+              "avg_training_cost": 1.5179173447858654,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.6284174331657209,
+              "avg_mse": 1525.3627719019955,
+              "avg_rmse": 39.055892921580934,
+              "avg_mae": 35.96927640266469,
+              "avg_generalization_ratio": 1.0727971709127837,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_3224851159954427888_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 0.8,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.6958215658138005,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.598129519367925,
+                  "mse": 1521.3573881129446,
+                  "rmse": 39.004581629764274,
+                  "mae": 35.97665216208264,
+                  "generalization_ratio": 0.9423924967017421
+                }
+              ],
+              "avg_training_cost": 1.6958215658138005,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.598129519367925,
+              "avg_mse": 1521.3573881129446,
+              "avg_rmse": 39.004581629764274,
+              "avg_mae": 35.97665216208264,
+              "avg_generalization_ratio": 0.9423924967017421,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-4407881626240392887_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 0.9,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.290022005837077,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.285565385952554,
+                  "mse": 1561.619560496719,
+                  "rmse": 39.51733240613186,
+                  "mae": 36.41299198094146,
+                  "generalization_ratio": 0.9980538964808358
+                }
+              ],
+              "avg_training_cost": 2.290022005837077,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.285565385952554,
+              "avg_mse": 1561.619560496719,
+              "avg_rmse": 39.51733240613186,
+              "avg_mae": 36.41299198094146,
+              "avg_generalization_ratio": 0.9980538964808358,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-539762399224654788_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.9442571136538445,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.8944981020384307,
+                  "mse": 1522.0522927103395,
+                  "rmse": 39.013488599590005,
+                  "mae": 35.847214951301176,
+                  "generalization_ratio": 0.9473035353444476
+                }
+              ],
+              "avg_training_cost": 0.9442571136538445,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.8944981020384307,
+              "avg_mse": 1522.0522927103395,
+              "avg_rmse": 39.013488599590005,
+              "avg_mae": 35.847214951301176,
+              "avg_generalization_ratio": 0.9473035353444476,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_3235726715025992774_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 0.8,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.7390544446469445,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.7285378363837554,
+                  "mse": 1558.4771453492976,
+                  "rmse": 39.47755242348869,
+                  "mae": 36.40546589025139,
+                  "generalization_ratio": 0.9939526860153455
+                }
+              ],
+              "avg_training_cost": 1.7390544446469445,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.7285378363837554,
+              "avg_mse": 1558.4771453492976,
+              "avg_rmse": 39.47755242348869,
+              "avg_mae": 36.40546589025139,
+              "avg_generalization_ratio": 0.9939526860153455,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-6334279015603829915_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 0.9,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.609952440241947,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.412121463717909,
+                  "mse": 1582.3787154259355,
+                  "rmse": 39.779124115871824,
+                  "mae": 36.58288172033811,
+                  "generalization_ratio": 0.9242013097734076
+                }
+              ],
+              "avg_training_cost": 2.609952440241947,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.412121463717909,
+              "avg_mse": 1582.3787154259355,
+              "avg_rmse": 39.779124115871824,
+              "avg_mae": 36.58288172033811,
+              "avg_generalization_ratio": 0.9242013097734076,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_6333412690506620274_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.9975006143362268,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.8095172675897976,
+                  "mse": 1531.4944387746225,
+                  "rmse": 39.13431280570316,
+                  "mae": 36.035079626028356,
+                  "generalization_ratio": 0.8115456331106922
+                }
+              ],
+              "avg_training_cost": 0.9975006143362268,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.8095172675897976,
+              "avg_mse": 1531.4944387746225,
+              "avg_rmse": 39.13431280570316,
+              "avg_mae": 36.035079626028356,
+              "avg_generalization_ratio": 0.8115456331106922,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_417548844298636204_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 0.8,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.2028089216415174,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.2098903511845627,
+                  "mse": 1544.9334110618654,
+                  "rmse": 39.30564095727057,
+                  "mae": 36.272246373215346,
+                  "generalization_ratio": 1.0058874102242117
+                }
+              ],
+              "avg_training_cost": 1.2028089216415174,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.2098903511845627,
+              "avg_mse": 1544.9334110618654,
+              "avg_rmse": 39.30564095727057,
+              "avg_mae": 36.272246373215346,
+              "avg_generalization_ratio": 1.0058874102242117,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_6850127514783406083_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 0.9,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.858963867638751,
+                  "training_time_secs": 0.0,
+                  "test_cost": 3.5099934959809715,
+                  "mse": 1556.117767392063,
+                  "rmse": 39.44765857933856,
+                  "mae": 36.12488355571273,
+                  "generalization_ratio": 1.2277152347783649
+                }
+              ],
+              "avg_training_cost": 2.858963867638751,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 3.5099934959809715,
+              "avg_mse": 1556.117767392063,
+              "avg_rmse": 39.44765857933856,
+              "avg_mae": 36.12488355571273,
+              "avg_generalization_ratio": 1.2277152347783649,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-6486195915711455516_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.6,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.0182481423578926,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.8600029630623881,
+                  "mse": 1529.1079131738104,
+                  "rmse": 39.10380944580477,
+                  "mae": 35.892620946601,
+                  "generalization_ratio": 0.8445907508074936
+                }
+              ],
+              "avg_training_cost": 1.0182481423578926,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.8600029630623881,
+              "avg_mse": 1529.1079131738104,
+              "avg_rmse": 39.10380944580477,
+              "avg_mae": 35.892620946601,
+              "avg_generalization_ratio": 0.8445907508074936,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_4781200419860478605_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 0.8,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.8607991765461376,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.7935147668968214,
+                  "mse": 1555.5520256941284,
+                  "rmse": 39.44048713814433,
+                  "mae": 36.20772742660681,
+                  "generalization_ratio": 0.9638411224073068
+                }
+              ],
+              "avg_training_cost": 1.8607991765461376,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.7935147668968214,
+              "avg_mse": 1555.5520256941284,
+              "avg_rmse": 39.44048713814433,
+              "avg_mae": 36.20772742660681,
+              "avg_generalization_ratio": 0.9638411224073068,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_1298966730921236398_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 0.9,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 3.1631953823290546,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.871108901987759,
+                  "mse": 1528.2797202910053,
+                  "rmse": 39.09321834143366,
+                  "mae": 35.837056311298426,
+                  "generalization_ratio": 0.907660942484611
+                }
+              ],
+              "avg_training_cost": 3.1631953823290546,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.871108901987759,
+              "avg_mse": 1528.2797202910053,
+              "avg_rmse": 39.09321834143366,
+              "avg_mae": 35.837056311298426,
+              "avg_generalization_ratio": 0.907660942484611,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-6781478290678929366_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 1.0,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 3.4318254714301806,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.957937221841951,
+                  "mse": 1605.6635756843937,
+                  "rmse": 40.07073215807759,
+                  "mae": 37.042478954263316,
+                  "generalization_ratio": 0.8619136510485944
+                }
+              ],
+              "avg_training_cost": 3.4318254714301806,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.957937221841951,
+              "avg_mse": 1605.6635756843937,
+              "avg_rmse": 40.07073215807759,
+              "avg_mae": 37.042478954263316,
+              "avg_generalization_ratio": 0.8619136510485944,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-7402277370508033107_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 0.8,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.2680743315202154,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.212533185209984,
+                  "mse": 1555.2078373626166,
+                  "rmse": 39.43612350830919,
+                  "mae": 36.35009587817941,
+                  "generalization_ratio": 0.9562004017196323
+                }
+              ],
+              "avg_training_cost": 1.2680743315202154,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.212533185209984,
+              "avg_mse": 1555.2078373626166,
+              "avg_rmse": 39.43612350830919,
+              "avg_mae": 36.35009587817941,
+              "avg_generalization_ratio": 0.9562004017196323,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_980500957275558749_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 0.9,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.2847512621665909,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.176218961330796,
+                  "mse": 1512.4667530308425,
+                  "rmse": 38.890445523686694,
+                  "mae": 35.66207925250326,
+                  "generalization_ratio": 0.9155227132038251
+                }
+              ],
+              "avg_training_cost": 1.2847512621665909,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.176218961330796,
+              "avg_mse": 1512.4667530308425,
+              "avg_rmse": 38.890445523686694,
+              "avg_mae": 35.66207925250326,
+              "avg_generalization_ratio": 0.9155227132038251,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_1240006416748719633_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 1.0,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.8347320045311333,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.666348534306576,
+                  "mse": 1545.7605682602307,
+                  "rmse": 39.316161667439395,
+                  "mae": 36.30666041494036,
+                  "generalization_ratio": 0.9082244873863267
+                }
+              ],
+              "avg_training_cost": 1.8347320045311333,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.666348534306576,
+              "avg_mse": 1545.7605682602307,
+              "avg_rmse": 39.316161667439395,
+              "avg_mae": 36.30666041494036,
+              "avg_generalization_ratio": 0.9082244873863267,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_4058848186221429605_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 0.8,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.1921183474039703,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.8623447696029372,
+                  "mse": 1484.1830490464774,
+                  "rmse": 38.52509635350024,
+                  "mae": 35.30445033083623,
+                  "generalization_ratio": 0.849563971675357
+                }
+              ],
+              "avg_training_cost": 2.1921183474039703,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.8623447696029372,
+              "avg_mse": 1484.1830490464774,
+              "avg_rmse": 38.52509635350024,
+              "avg_mae": 35.30445033083623,
+              "avg_generalization_ratio": 0.849563971675357,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-4567209642162370510_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 0.9,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.577245413326824,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.289042400672304,
+                  "mse": 1532.5934357674462,
+                  "rmse": 39.148351635381104,
+                  "mae": 35.91356090068137,
+                  "generalization_ratio": 0.8172744645700859
+                }
+              ],
+              "avg_training_cost": 1.577245413326824,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.289042400672304,
+              "avg_mse": 1532.5934357674462,
+              "avg_rmse": 39.148351635381104,
+              "avg_mae": 35.91356090068137,
+              "avg_generalization_ratio": 0.8172744645700859,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_8669834480166543087_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.8,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.5875919580507365,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.5566445417886086,
+                  "mse": 1515.226139364076,
+                  "rmse": 38.925905761639974,
+                  "mae": 35.6154154324479,
+                  "generalization_ratio": 0.9805066937350039
+                }
+              ],
+              "avg_training_cost": 1.5875919580507365,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.5566445417886086,
+              "avg_mse": 1515.226139364076,
+              "avg_rmse": 38.925905761639974,
+              "avg_mae": 35.6154154324479,
+              "avg_generalization_ratio": 0.9805066937350039,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-7578768442425411638_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 0.8,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.2714093445943946,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.0952424714771194,
+                  "mse": 1531.8016735926433,
+                  "rmse": 39.13823799805816,
+                  "mae": 36.06123723119782,
+                  "generalization_ratio": 0.8614396898479019
+                }
+              ],
+              "avg_training_cost": 1.2714093445943946,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.0952424714771194,
+              "avg_mse": 1531.8016735926433,
+              "avg_rmse": 39.13823799805816,
+              "avg_mae": 36.06123723119782,
+              "avg_generalization_ratio": 0.8614396898479019,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_3732778885458643914_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 0.9,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.9190116096900736,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.5108780682078429,
+                  "mse": 1502.5104096734028,
+                  "rmse": 38.76222916285134,
+                  "mae": 35.61219316605187,
+                  "generalization_ratio": 0.7873209628220302
+                }
+              ],
+              "avg_training_cost": 1.9190116096900736,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.5108780682078429,
+              "avg_mse": 1502.5104096734028,
+              "avg_rmse": 38.76222916285134,
+              "avg_mae": 35.61219316605187,
+              "avg_generalization_ratio": 0.7873209628220302,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-8050075508645366567_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 1.0,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.8656434584668855,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.6524563248187993,
+                  "mse": 1571.5323519228912,
+                  "rmse": 39.6425573332863,
+                  "mae": 36.608460255842445,
+                  "generalization_ratio": 0.8857299701716451
+                }
+              ],
+              "avg_training_cost": 1.8656434584668855,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.6524563248187993,
+              "avg_mse": 1571.5323519228912,
+              "avg_rmse": 39.6425573332863,
+              "avg_mae": 36.608460255842445,
+              "avg_generalization_ratio": 0.8857299701716451,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_3068557333871107411_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 0.8,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.7871878489027575,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.52320880245373,
+                  "mse": 1494.8710732725583,
+                  "rmse": 38.66356260450605,
+                  "mae": 35.43100380759291,
+                  "generalization_ratio": 0.8522936206112317
+                }
+              ],
+              "avg_training_cost": 1.7871878489027575,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.52320880245373,
+              "avg_mse": 1494.8710732725583,
+              "avg_rmse": 38.66356260450605,
+              "avg_mae": 35.43100380759291,
+              "avg_generalization_ratio": 0.8522936206112317,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_8432451180778352365_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 0.9,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.5361830645123606,
+                  "training_time_secs": 0.0,
+                  "test_cost": 3.0144484484337264,
+                  "mse": 1560.7477634660625,
+                  "rmse": 39.50630030091482,
+                  "mae": 36.22099852749976,
+                  "generalization_ratio": 1.1885768384047322
+                }
+              ],
+              "avg_training_cost": 2.5361830645123606,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 3.0144484484337264,
+              "avg_mse": 1560.7477634660625,
+              "avg_rmse": 39.50630030091482,
+              "avg_mae": 36.22099852749976,
+              "avg_generalization_ratio": 1.1885768384047322,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_1405082928040752122_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 1.0,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.676359921909021,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.7461077929281363,
+                  "mse": 1555.791030684453,
+                  "rmse": 39.44351696647312,
+                  "mae": 36.35208427242626,
+                  "generalization_ratio": 1.0416067397624773
+                }
+              ],
+              "avg_training_cost": 1.676359921909021,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.7461077929281363,
+              "avg_mse": 1555.791030684453,
+              "avg_rmse": 39.44351696647312,
+              "avg_mae": 36.35208427242626,
+              "avg_generalization_ratio": 1.0416067397624773,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_8227922822940389888_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 0.8,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.4608006488295024,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.5547971413122683,
+                  "mse": 1544.7843886165624,
+                  "rmse": 39.30374522378958,
+                  "mae": 36.0453070992245,
+                  "generalization_ratio": 1.0381975242600314
+                }
+              ],
+              "avg_training_cost": 2.4608006488295024,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.5547971413122683,
+              "avg_mse": 1544.7843886165624,
+              "avg_rmse": 39.30374522378958,
+              "avg_mae": 36.0453070992245,
+              "avg_generalization_ratio": 1.0381975242600314,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-5371269361661764982_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 0.9,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.164935018141988,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.1842304077681125,
+                  "mse": 1542.6296057450384,
+                  "rmse": 39.27632373001626,
+                  "mae": 36.17558038271604,
+                  "generalization_ratio": 1.0165634900879705
+                }
+              ],
+              "avg_training_cost": 1.164935018141988,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.1842304077681125,
+              "avg_mse": 1542.6296057450384,
+              "avg_rmse": 39.27632373001626,
+              "avg_mae": 36.17558038271604,
+              "avg_generalization_ratio": 1.0165634900879705,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-913947692446265572_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 0.9,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.566618143494146,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.1980350237830524,
+                  "mse": 1537.7760012115011,
+                  "rmse": 39.21448713436784,
+                  "mae": 35.95721303380435,
+                  "generalization_ratio": 0.8563934722251626
+                }
+              ],
+              "avg_training_cost": 2.566618143494146,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.1980350237830524,
+              "avg_mse": 1537.7760012115011,
+              "avg_rmse": 39.21448713436784,
+              "avg_mae": 35.95721303380435,
+              "avg_generalization_ratio": 0.8563934722251626,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_4780017736686146307_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 0.8,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.1558359624332746,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.4030390086614055,
+                  "mse": 1555.327553830587,
+                  "rmse": 39.43764133198874,
+                  "mae": 36.410628102693295,
+                  "generalization_ratio": 1.1146669090486434
+                }
+              ],
+              "avg_training_cost": 2.1558359624332746,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.4030390086614055,
+              "avg_mse": 1555.327553830587,
+              "avg_rmse": 39.43764133198874,
+              "avg_mae": 36.410628102693295,
+              "avg_generalization_ratio": 1.1146669090486434,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-6504567428452771553_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 0.9,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.831062816728327,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.9490710226721513,
+                  "mse": 1559.1028771583988,
+                  "rmse": 39.48547678778108,
+                  "mae": 36.32969815596623,
+                  "generalization_ratio": 1.0644479287470197
+                }
+              ],
+              "avg_training_cost": 1.831062816728327,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.9490710226721513,
+              "avg_mse": 1559.1028771583988,
+              "avg_rmse": 39.48547678778108,
+              "avg_mae": 36.32969815596623,
+              "avg_generalization_ratio": 1.0644479287470197,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_2196093044782947210_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 0.8,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.5159751676043844,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.2349362132498038,
+                  "mse": 1536.1536726507334,
+                  "rmse": 39.193796354151935,
+                  "mae": 35.92107641636276,
+                  "generalization_ratio": 0.8146150673439515
+                }
+              ],
+              "avg_training_cost": 1.5159751676043844,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.2349362132498038,
+              "avg_mse": 1536.1536726507334,
+              "avg_rmse": 39.193796354151935,
+              "avg_mae": 35.92107641636276,
+              "avg_generalization_ratio": 0.8146150673439515,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_4551339327092318078_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 0.8,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.1695549028462675,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.12014888577658,
+                  "mse": 1535.1037929226861,
+                  "rmse": 39.180400622284175,
+                  "mae": 35.90706589812093,
+                  "generalization_ratio": 0.9577565645277093
+                }
+              ],
+              "avg_training_cost": 1.1695549028462675,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.12014888577658,
+              "avg_mse": 1535.1037929226861,
+              "avg_rmse": 39.180400622284175,
+              "avg_mae": 35.90706589812093,
+              "avg_generalization_ratio": 0.9577565645277093,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_3784301294760384600_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 0.9,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.6262829173464266,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.4834075606655124,
+                  "mse": 1520.0654296777195,
+                  "rmse": 38.98801648811747,
+                  "mae": 35.65104423741552,
+                  "generalization_ratio": 0.9455978806634914
+                }
+              ],
+              "avg_training_cost": 2.6262829173464266,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.4834075606655124,
+              "avg_mse": 1520.0654296777195,
+              "avg_rmse": 38.98801648811747,
+              "avg_mae": 35.65104423741552,
+              "avg_generalization_ratio": 0.9455978806634914,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_-5314740750588988508_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 0.9,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 3.10493595787209,
+                  "training_time_secs": 0.0,
+                  "test_cost": 3.450973595067253,
+                  "mse": 1562.0402899324083,
+                  "rmse": 39.52265540082559,
+                  "mae": 36.46120785373855,
+                  "generalization_ratio": 1.1114475924431992
+                }
+              ],
+              "avg_training_cost": 3.10493595787209,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 3.450973595067253,
+              "avg_mse": 1562.0402899324083,
+              "avg_rmse": 39.52265540082559,
+              "avg_mae": 36.46120785373855,
+              "avg_generalization_ratio": 1.1114475924431992,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_660213994509262957_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 0.8,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.4042838461197116,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.3550660263699286,
+                  "mse": 1526.3227554442797,
+                  "rmse": 39.06818085660349,
+                  "mae": 35.84487815753769,
+                  "generalization_ratio": 0.9649516585369968
+                }
+              ],
+              "avg_training_cost": 1.4042838461197116,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.3550660263699286,
+              "avg_mse": 1526.3227554442797,
+              "avg_rmse": 39.06818085660349,
+              "avg_mae": 35.84487815753769,
+              "avg_generalization_ratio": 0.9649516585369968,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_1176847533382434257_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 0.9,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.4674909565999315,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.144270000787422,
+                  "mse": 1525.5129943776794,
+                  "rmse": 39.0578160472098,
+                  "mae": 35.81027420216501,
+                  "generalization_ratio": 0.7797458619020122
+                }
+              ],
+              "avg_training_cost": 1.4674909565999315,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.144270000787422,
+              "avg_mse": 1525.5129943776794,
+              "avg_rmse": 39.0578160472098,
+              "avg_mae": 35.81027420216501,
+              "avg_generalization_ratio": 0.7797458619020122,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "vel_coeffs_group_1_pso_2793002970227872092_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 20,
+              "swarm_size": 5,
+              "w_inertia": 0.7,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 2.466149018014953,
+                  "training_time_secs": 0.0,
+                  "test_cost": 2.3591936794116783,
+                  "mse": 1579.4491514741064,
+                  "rmse": 39.742284175347876,
+                  "mae": 36.61161901597691,
+                  "generalization_ratio": 0.9566306262022379
+                }
+              ],
+              "avg_training_cost": 2.466149018014953,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 2.3591936794116783,
+              "avg_mse": 1579.4491514741064,
+              "avg_rmse": 39.742284175347876,
+              "avg_mae": 36.61161901597691,
+              "avg_generalization_ratio": 0.9566306262022379,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "inves_type": "fixed_budget",
+    "id": "fixed_budget_inves_1",
+    "metadata": {
+      "name": "Fixed Budget Effect",
+      "description": "Investigate the effect of different breakdown of fitness run budget"
+    },
+    "groups_details": [
+      {
+        "inves_type": "fixed_budget",
+        "id": "fixed_budget_group_1",
+        "metadata": {
+          "name": "Fixed Budget Experiments with optimal PSO coeffs",
+          "description": "Experiment group with 1.4 PSO coeffs and NN having 2 hidden layers"
+        },
+        "exps_details": [
+          {
+            "id": "fixed_budget_group_1_pso_6762393632174092095_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 10,
+              "swarm_size": 5,
+              "w_inertia": 0.5,
+              "c_personal": 1.4,
+              "c_social": 1.4,
+              "c_global": 1.4,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 11.815750557182213,
+                  "training_time_secs": 0.0,
+                  "test_cost": 8.601692461915068,
+                  "mse": 1629.6093405035926,
+                  "rmse": 40.36842008926771,
+                  "mae": 37.13757883884492,
+                  "generalization_ratio": 0.7279852786572685
+                }
+              ],
+              "avg_training_cost": 11.815750557182213,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 8.601692461915068,
+              "avg_mse": 1629.6093405035926,
+              "avg_rmse": 40.36842008926771,
+              "avg_mae": 37.13757883884492,
+              "avg_generalization_ratio": 0.7279852786572685,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "fixed_budget_group_1_pso_-7091232320744267599_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 6,
+              "swarm_size": 8,
+              "w_inertia": 0.5,
+              "c_personal": 1.4,
+              "c_social": 1.4,
+              "c_global": 1.4,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 3,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 15.024049690862714,
+                  "training_time_secs": 0.0,
+                  "test_cost": 14.91467376967802,
+                  "mse": 1671.659982966653,
+                  "rmse": 40.88593869494319,
+                  "mae": 37.53667380974289,
+                  "generalization_ratio": 0.9927199441272339
+                }
+              ],
+              "avg_training_cost": 15.024049690862714,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 14.91467376967802,
+              "avg_mse": 1671.659982966653,
+              "avg_rmse": 40.88593869494319,
+              "avg_mae": 37.53667380974289,
+              "avg_generalization_ratio": 0.9927199441272339,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "inves_type": "fixed_budget",
+        "id": "fixed_budget_group_2",
+        "metadata": {
+          "name": "Fixed Budget Experiments with PSO coeffs of 1",
+          "description": "Experiment group with 1.4 PSO coeffs and NN having 2 hidden layers"
+        },
+        "exps_details": [
+          {
+            "id": "fixed_budget_group_2_pso_5772001288781404778_nn_2928961723754264699",
+            "pso_params": {
+              "max_iter": 10,
+              "swarm_size": 5,
+              "w_inertia": 0.5,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 4,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 4.126965532748422,
+                  "training_time_secs": 0.0,
+                  "test_cost": 3.9911010008185497,
+                  "mse": 1569.0294123309884,
+                  "rmse": 39.61097590732887,
+                  "mae": 36.48717941347068,
+                  "generalization_ratio": 0.9670788304744113
+                }
+              ],
+              "avg_training_cost": 4.126965532748422,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 3.9911010008185497,
+              "avg_mse": 1569.0294123309884,
+              "avg_rmse": 39.61097590732887,
+              "avg_mae": 36.48717941347068,
+              "avg_generalization_ratio": 0.9670788304744113,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

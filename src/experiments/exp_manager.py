@@ -1,4 +1,4 @@
-from experiments.param_comb_gen import *
+from experiments.param_comb_generator import *
 from config.paths import *
 from exp_executor import *
 from data_prep.data_prep import *
@@ -7,6 +7,7 @@ import config.global_config as gc
 from utilities.printer import Printer
 from dacite import from_dict
 import yaml
+from experiments.exp_result_logger import save_inves_details_json
 
 def load_config(path: str) -> Config:
 	with open(path, 'r') as f:
@@ -35,7 +36,8 @@ def run_exp_suite():
 					data_config=DataPrepConfig())
 				exp_detail.results = exp_result
 
-	printer.print_full_results(inves_details_list)
+	#printer.print_full_results(inves_details_list)
+	save_inves_details_json(inves_details_list)
 
 if __name__ == '__main__':
 	#gc.GC_PSO_PRINT = True

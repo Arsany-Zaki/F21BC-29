@@ -13,11 +13,11 @@ investigations:
           description: "Experiment group with small swarm and NN having 2 hidden layers"
         pso_param_ranges:
           # Velocity coefficients range to be explored
-          inertia:  [1.0, 1.0, 0.1] 
-          personal: [1.0, 1.0, 0.1] 
-          global_c:   [1.0, 1.0, 0.1] 
-          social:   [1.0, 1.0, 0.1] 
-          iterations_count: 10
+          inertia:  [0.6, 0.7, 0.1] 
+          personal: [0.8, 1.0, 0.1] 
+          global_c:   [0.8, 1.0, 0.1] 
+          social:   [0.8, 1.0, 0.1] 
+          iterations_count: 20
           swarm_size: 5
           informants_size: 2
           informant_selection: 'static_random'

@@ -1,0 +1,283 @@
+[
+  {
+    "inves_type": "vel_coeffs",
+    "id": "vel_coeffs_inves_1",
+    "metadata": {
+      "name": "Velocity Coeffs Effect"
+    },
+    "groups_details": [
+      {
+        "inves_type": "vel_coeffs",
+        "id": "vel_coeffs_group_1",
+        "metadata": {
+          "name": "Velocity Coeffs Experiments with small swarm",
+          "description": "Experiment group with small swarm and NN having 2 hidden layers"
+        },
+        "exps_details": [
+          {
+            "id": "vel_coeffs_group_1_pso_-1753872949455163186_nn_9154027925007680376",
+            "pso_params": {
+              "max_iter": 10,
+              "swarm_size": 5,
+              "w_inertia": 1.0,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 24.32556988608544,
+                  "training_time_secs": 0.0,
+                  "test_cost": 23.833398983836954,
+                  "mse": 1541.627145756015,
+                  "rmse": 39.26356002397153,
+                  "mae": 36.490618544311346,
+                  "generalization_ratio": 0.9797673433940796
+                }
+              ],
+              "avg_training_cost": 24.32556988608544,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 23.833398983836954,
+              "avg_mse": 1541.627145756015,
+              "avg_rmse": 39.26356002397153,
+              "avg_mae": 36.490618544311346,
+              "avg_generalization_ratio": 0.9797673433940796,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "inves_type": "fixed_budget",
+    "id": "fixed_budget_inves_1",
+    "metadata": {
+      "name": "Fixed Budget Effect",
+      "description": "Investigate the effect of different breakdown of fitness run budget"
+    },
+    "groups_details": [
+      {
+        "inves_type": "fixed_budget",
+        "id": "fixed_budget_group_1",
+        "metadata": {
+          "name": "Fixed Budget Experiments with optimal PSO coeffs",
+          "description": "Experiment group with 1.4 PSO coeffs and NN having 2 hidden layers"
+        },
+        "exps_details": [
+          {
+            "id": "fixed_budget_group_1_pso_764204126900563855_nn_9154027925007680376",
+            "pso_params": {
+              "max_iter": 10,
+              "swarm_size": 5,
+              "w_inertia": 0.5,
+              "c_personal": 1.4,
+              "c_social": 1.4,
+              "c_global": 1.4,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 3.491706984751659,
+                  "training_time_secs": 0.0,
+                  "test_cost": 3.0996448432390027,
+                  "mse": 1562.191436581304,
+                  "rmse": 39.52456750656867,
+                  "mae": 36.23933357393595,
+                  "generalization_ratio": 0.8877161963404151
+                }
+              ],
+              "avg_training_cost": 3.491706984751659,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 3.0996448432390027,
+              "avg_mse": 1562.191436581304,
+              "avg_rmse": 39.52456750656867,
+              "avg_mae": 36.23933357393595,
+              "avg_generalization_ratio": 0.8877161963404151,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          },
+          {
+            "id": "fixed_budget_group_1_pso_566851890663075746_nn_9154027925007680376",
+            "pso_params": {
+              "max_iter": 6,
+              "swarm_size": 8,
+              "w_inertia": 0.5,
+              "c_personal": 1.4,
+              "c_social": 1.4,
+              "c_global": 1.4,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 3,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 4.974483566322024,
+                  "training_time_secs": 0.0,
+                  "test_cost": 4.195561097979486,
+                  "mse": 1538.3653233112145,
+                  "rmse": 39.2220005011373,
+                  "mae": 36.06840995954111,
+                  "generalization_ratio": 0.8434164154011974
+                }
+              ],
+              "avg_training_cost": 4.974483566322024,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 4.195561097979486,
+              "avg_mse": 1538.3653233112145,
+              "avg_rmse": 39.2220005011373,
+              "avg_mae": 36.06840995954111,
+              "avg_generalization_ratio": 0.8434164154011974,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "inves_type": "fixed_budget",
+        "id": "fixed_budget_group_2",
+        "metadata": {
+          "name": "Fixed Budget Experiments with PSO coeffs of 1",
+          "description": "Experiment group with 1.4 PSO coeffs and NN having 2 hidden layers"
+        },
+        "exps_details": [
+          {
+            "id": "fixed_budget_group_2_pso_20547910651064703_nn_9154027925007680376",
+            "pso_params": {
+              "max_iter": 10,
+              "swarm_size": 5,
+              "w_inertia": 0.5,
+              "c_personal": 1.0,
+              "c_social": 1.0,
+              "c_global": 1.0,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 4,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.8092985488135673,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.423352679123694,
+                  "mse": 1562.368596369473,
+                  "rmse": 39.52680857809637,
+                  "mae": 36.302867714790096,
+                  "generalization_ratio": 0.7866875701951155
+                }
+              ],
+              "avg_training_cost": 1.8092985488135673,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.423352679123694,
+              "avg_mse": 1562.368596369473,
+              "avg_rmse": 39.52680857809637,
+              "avg_mae": 36.302867714790096,
+              "avg_generalization_ratio": 0.7866875701951155,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
