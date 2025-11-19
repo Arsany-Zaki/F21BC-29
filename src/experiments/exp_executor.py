@@ -63,6 +63,7 @@ def execute_exp(
     testing_data: List[Point],
     nn_config: NNParams, 
     pso_config: PSOParams,
+    analysis_config: AnalysisConfig,
     data_config: DataPrepConfig
 ) -> ExpResults:
     exp_result = ExpResults(
@@ -82,15 +83,16 @@ def execute_exp(
         std_mae=0,
         std_generalization_ratio=0
     )
-    exp_run_result = _execute_exp_run(
-        training_data=training_data,
-        testing_data=testing_data,
-        nn_config=nn_config,
-        pso_config=pso_config,
-        data_config=data_config
-    )
-   
-    exp_result.exp_run_results.append(exp_run_result)
+    runs_count = getattr(analysis_config, 'runs_count', 1)
+    for _ in range(runs_count):
+        exp_run_result = _execute_exp_run(
+            training_data=training_data,
+            testing_data=testing_data,
+            nn_config=nn_config,
+            pso_config=pso_config,
+            data_config=data_config
+        )
+        exp_result.exp_run_results.append(exp_run_result)
     exp_result.avg_training_cost = np.mean([r.training_cost for r in exp_result.exp_run_results])
     exp_result.std_training_cost = np.std([r.training_cost for r in exp_result.exp_run_results])
     exp_result.avg_training_time_secs = np.mean([r.training_time_secs for r in exp_result.exp_run_results])

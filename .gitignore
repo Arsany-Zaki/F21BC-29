@@ -92,7 +92,6 @@ doc/_build/
 build/docs/
 
 # --- Data / Artifacts ---
-data/
 *.csv
 *.tsv
 *.xlsx
@@ -118,6 +117,7 @@ results/
 
 # --- Custom project folders ---
 logs/
+docs/
 notebooks/
 __output__/
 __temp__/

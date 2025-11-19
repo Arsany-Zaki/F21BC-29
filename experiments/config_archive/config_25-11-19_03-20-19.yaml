@@ -1,5 +1,5 @@
 analysis_config:
-  runs_count: 5
+  runs_count: 4
 investigations:
   - type: 'vel_coeffs' # Specify the parameters to vary
     id: 'inv'
@@ -13,13 +13,13 @@ investigations:
           description: "Social coeffs effect"
         pso_param_ranges:
           # Velocity coefficients range to be explored
-          inertia:  [0.4, 1.0, 0.2] 
-          personal: [0.8, 1.6, 0.2] 
-          global_c: [0.8, 1.6, 0.2]
-          social:   [0.8, 1.6, 0.2] 
-          iterations_count: 50
-          swarm_size: 10
-          informants_size: 3
+          inertia:  [0.5, 0.5, 0.0] 
+          personal: [1.4, 1.4, 0.0] 
+          global_c: [1.4, 1.4, 0.0]
+          social:   [1.0, 1.8, 0.1] 
+          iterations_count: 100
+          swarm_size: 20
+          informants_size: 10
           informant_selection: 'static_random'
           boundary_handling: 'reflect'
           jump_size: 1.0

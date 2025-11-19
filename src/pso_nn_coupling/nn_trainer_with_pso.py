@@ -28,44 +28,6 @@ class NNTrainerUsingPSO:
 		best_position, best_fitness = self.pso.optimize(self._assess_fitness)
 		return best_position, best_fitness
 
-	def train_nn_using_pyswarm_pso(self):
-		# Import pyswarm locally to avoid dependency if not used
-		from pyswarm import pso as pyswarm_pso
-		# Create neural network
-		self.nn = NeuralNetwork(config=self.nn_config)
-		# Set PSO boundaries based on NN topology and activations
-		boundaries = self.calculate_pso_feature_boundaries()
-		lb = [b[0] for b in boundaries]
-		ub = [b[1] for b in boundaries]
-		self.pso_config.boundary_min = lb
-		self.pso_config.boundary_max = ub
-		# Use pyswarm's pso optimizer
-		best_weights, best_fitness = pyswarm_pso(
-			self._assess_fitness,
-			lb,
-			ub,
-			phig=self.pso_config.c_global,
-			phip=self.pso_config.c_personal,
-			omega=self.pso_config.w_inertia,
-			swarmsize=self.pso_config.swarm_size
-		)
-		return best_weights, best_fitness
-
-	def train_nn_pyswarm_pso_default(self):
-		# Import pyswarm locally to avoid dependency if not used
-		from pyswarm import pso as pyswarm_pso
-		# Create neural network
-		self.nn = NeuralNetwork(config=self.nn_config)
-		# Set PSO boundaries based on NN topology and activations
-		boundaries = self.calculate_pso_feature_boundaries()
-		lower_bounds = [b[0] for b in boundaries]
-		upper_bounds = [b[1] for b in boundaries]
-		self.pso_config.boundary_min = lower_bounds
-		self.pso_config.boundary_max = upper_bounds
-		# Use pyswarm's pso optimizer
-		best_weights, best_fitness = pyswarm_pso(self._assess_fitness,lower_bounds,upper_bounds)
-		return best_weights, best_fitness
-
 	def _assess_fitness(self, flat_weights_and_biases: np.ndarray) -> float:
 		weights_struct, biases_struct = self.pso_vector_to_nn_weights_and_biases(flat_weights_and_biases)
 		cost, _ = self.nn.forward_run_full_set(

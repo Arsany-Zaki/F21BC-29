@@ -1,0 +1,78 @@
+[
+  {
+    "inves_type": "vel_coeffs",
+    "id": "inv",
+    "metadata": {
+      "name": "Personal, Global and Social Coeffs Effect",
+      "description": "Analyze the effect of different combinations of personal, global and social velocity coefficients on PSO performance"
+    },
+    "groups_details": [
+      {
+        "inves_type": "vel_coeffs",
+        "id": "social-range",
+        "metadata": {
+          "name": "Social coeffs effect",
+          "description": "Social coeffs effect"
+        },
+        "exps_details": [
+          {
+            "id": "social-range_1",
+            "pso_params": {
+              "max_iter": 10,
+              "swarm_size": 5,
+              "w_inertia": 0.5,
+              "c_personal": 1.4,
+              "c_social": 1.0,
+              "c_global": 1.4,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 2,
+              "boundary_handling": "reflect",
+              "dims": 81,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 1.073009229094791,
+                  "training_time_secs": 0.0,
+                  "test_cost": 1.1183159521566381,
+                  "mse": 1531.2663983474572,
+                  "rmse": 39.13139913608325,
+                  "mae": 35.94416231010051,
+                  "generalization_ratio": 1.0422239826399897
+                }
+              ],
+              "avg_training_cost": 1.073009229094791,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 1.1183159521566381,
+              "avg_mse": 1531.2663983474572,
+              "avg_rmse": 39.13139913608325,
+              "avg_mae": 35.94416231010051,
+              "avg_generalization_ratio": 1.0422239826399897,
+              "std_training_cost": 0.0,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.0,
+              "std_mse": 0.0,
+              "std_rmse": 0.0,
+              "std_mae": 0.0,
+              "std_generalization_ratio": 0.0
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

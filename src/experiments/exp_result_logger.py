@@ -4,9 +4,10 @@ from datetime import datetime
 from experiments.entities import InvesDetails
 from typing import List
 from config.paths import *
-
+import shutil
 import dataclasses
 import enum
+
 def inves_details_to_dict(obj):
     def remove_boundaries(d):
         if isinstance(d, dict):
@@ -30,11 +31,25 @@ def inves_details_to_dict(obj):
             return val
     return convert(obj)
        
-
-def save_inves_details_json(inves_details_list: List[InvesDetails]):
-    os.makedirs(PATH_EXP_OUTPUT_DIR, exist_ok=True)
+def log_config_and_result(inves_details_list: List[InvesDetails]):
+    save_result(inves_details_list)
     now = datetime.now().strftime("%y-%m-%d_%H-%M-%S")
-    filename = f"{PATH_EXP_OUTPUT_DIR}results_{now}.json"
-    with open(filename, "w", encoding="utf-8") as f:
+    archive_config(now)
+    archive_result(now)
+    
+def save_result(inves_details_list: List[InvesDetails]):
+    with open(PATH_EXP_RESULT_FILE, "w", encoding="utf-8") as f:
         json.dump(inves_details_to_dict(inves_details_list), f, indent=2, ensure_ascii=False)
-    print(f"Experiment results saved to {filename}")
+    print(f"Experiment results saved to {PATH_EXP_RESULT_FILE}")
+
+def archive_config(timestamp: str):
+    os.makedirs(PATH_EXP_CONFIG_ARCHIVE_DIR, exist_ok=True)
+    orig_file_path = PATH_EXP_CONFIG_FILE
+    archive_file_path = f"{PATH_EXP_CONFIG_ARCHIVE_DIR}config_{timestamp}.yaml"
+    shutil.copyfile(orig_file_path, archive_file_path)
+
+def archive_result(timestamp: str):
+    os.makedirs(PATH_EXP_RESULT_ARCHIVE_DIR, exist_ok=True)
+    orig_file_path = PATH_EXP_RESULT_FILE
+    archive_file_path = f"{PATH_EXP_RESULT_ARCHIVE_DIR}result_{timestamp}.json"
+    shutil.copyfile(orig_file_path, archive_file_path)

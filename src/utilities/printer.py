@@ -5,6 +5,28 @@ from experiments.entities import *
 from experiments.entities_yaml import GroupConfig
 
 class Printer:
+	def print_investigation_metadata(self, inves_details):
+		metadata = inves_details.metadata or {}
+		self.print(f"\n=== Investigation: {inves_details.id} (type: {inves_details.inves_type}) ===")
+		if metadata:
+			for k, v in metadata.items():
+				self.print(f"  {k}: {v}")
+
+	def print_group_metadata(self, group_details):
+		metadata = group_details.metadata or {}
+		self.print(f"  -- Group: {group_details.id} (type: {group_details.inves_type}) --")
+		if metadata:
+			for k, v in metadata.items():
+				self.print(f"    {k}: {v}")
+
+	def print_num_experiments(self, group_details):
+		n = len(group_details.exps_details)
+		self.print(f"    Number of experiments: {n}")
+
+	def print_exp_progress(self, group_id, exp_idx, exp_total, exp_id):
+		self.print(f"      [Group {group_id}] Running experiment {exp_idx}/{exp_total} (id: {exp_id}) ...")
+	def print(self, *args, **kwargs):
+		print(*args, **kwargs)
 	def print_exp_params(self, exp_detail, idx):
 		print("\n--- Experiment Parameters Before Execution ---")
 		self.exp_details_summary(exp_detail, idx)
@@ -100,61 +122,63 @@ class Printer:
 		table_str = "\n".join(f"{tab3}{line}" for line in table_str.splitlines())
 		print(table_str)
 
-		# Grouped NN params
-		nn = exp_detail.nn_params
-		nn_dict = nn.__dict__
-		# Merge NN Architecture and Functions into one table with two rows, using tabulate headers for alignment
-		nn_fields = ["input_dim", "layers_sizes", "activation_functions", "cost_function"]
-		values = []
-		for k in nn_fields:
-			v = nn_dict.get(k, "-")
-			# Format lists and enums nicely
-			if isinstance(v, list):
-				v = str([str(x) for x in v])
-			elif hasattr(v, 'value'):
-				v = v.value
-			values.append(v)
-		group_label = "NN Parameters:"
-		print(f"{tab3}{group_label}")
-		table_str = tabulate([values], headers=nn_fields, tablefmt="fancy_grid", showindex=False)
-		table_str = "\n".join(f"{tab3}{line}" for line in table_str.splitlines())
-		print(table_str)
-		print(f"{tab3}exp results:")
-		if exp_detail.results is not None:
-			# Prepare mean ± std table for main metrics
-			res = exp_detail.results
-			metrics = [
-				("training_cost", res.avg_training_cost, res.std_training_cost),
-				("training_time_secs", res.avg_training_time_secs, res.std_training_time_secs),
-				("test_cost", res.avg_test_cost, res.std_test_cost),
-				("mse", res.avg_mse, res.std_mse),
-				("rmse", res.avg_rmse, res.std_rmse),
-				("mae", res.avg_mae, res.std_mae),
-				("generalization_ratio", res.avg_generalization_ratio, res.std_generalization_ratio),
-			]
-			table_data = [[name, f"{mean:.4f} ± {std:.4f}"] for name, mean, std in metrics]
-			table_str = tabulate(table_data, headers=["Metric", "Value (mean ± std)"], tablefmt="fancy_grid")
-			table_str = "\n".join(f"{tab3}{line}" for line in table_str.splitlines())
-			print(table_str)
-		else:
-			print(f"{tab3}  No results.")
+		class Printer:
+			def print(self, *args, **kwargs):
+				print(*args, **kwargs)
+			def print_exp_params(self, exp_detail, idx):
+				print("\n--- Experiment Parameters Before Execution ---")
+				self.exp_details_summary(exp_detail, idx)
+			def print_summary(self, inves_details_list):
+				for inves_details in inves_details_list:
+					metadata = inves_details.metadata or {}
+					print(f"- Investigation (type: {inves_details.inves_type})")
+					print(f"    id: {inves_details.id}")
+					name = metadata.get('name')
+					if name:
+						print(f"    name: {name}")
+					desc = metadata.get('description')
+					if desc:
+						print(f"    description: {desc}")
+					for group_details in inves_details.groups_details:
+						gmeta = group_details.metadata or {}
+						print(f"    - Group (type: {group_details.inves_type})")
+						print(f"        id: {group_details.id}")
+						gname = gmeta.get('name')
+						if gname:
+							print(f"        name: {gname}")
+						gdesc = gmeta.get('description')
+						if gdesc:
+							print(f"        description: {gdesc}")
 
-	def start_exp(self, exp_details: ExpDetails):
-		print('**' * 2, f"Experiment ID: {exp_details.id}")
-		print('    ', f"PSO Params: {exp_details.pso_params}")
-		print('    ', f"NN Params: {exp_details.nn_params}")
-	
-	def inves_details(self, inves_details: InvesDetails):
-		self.start_inves(inves_details)
-		for group_details in inves_details.groups_details:
-			self.group_details(group_details)
+			def print_full_results(self, inves_details_list):
+				print("\n===== FULL EXPERIMENT RESULTS =====\n")
+				for inves_details in inves_details_list:
+					self.start_inves(inves_details)
+			def __init__(self):
+				pass
 
-	def group_details(self, group_details: GroupDetails):
-		self.start_group(group_details)
-		for i, exp_detail in enumerate(group_details.exps_details):
-			self.start_exp(exp_detail)
-			self.exp_details(exp_detail)
+			def start_inves(self, inves_details: InvesDetails):
+				metadata = inves_details.metadata or {}
+				tab1 = '    '
+				tab2 = '        '
+				print(f"- Investigation (type: {inves_details.inves_type})")
+				print(f"{tab1}id: {inves_details.id}")
+				name = metadata.get('name')
+				if name:
+					print(f"{tab1}name: {name}")
+				desc = metadata.get('description')
+				if desc:
+					print(f"{tab1}description: {desc}")
+				for group_details in inves_details.groups_details:
+					self.group_summary(group_details)
+				print()
 
+			def group_summary(self, group_details: GroupDetails):
+				metadata = group_details.metadata or {}
+				tab1 = '    '
+				tab2 = '        '
+				print(f"{tab1}- Group (type: {group_details.inves_type})")
+				print(f"{tab2}id: {group_details.id}")
 	def exp_details(self, exp_details: ExpDetails):
 		if exp_details.results is None:
 			print('      No results available.')

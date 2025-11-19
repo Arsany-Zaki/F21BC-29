@@ -86,6 +86,7 @@ def _expand_vel_coeffs(group, pso_ranges, nn_ranges):
         raise ValueError(f"boundary_min and boundary_max must be lists, got {type(boundary_min)}, {type(boundary_max)}")
     if len(boundary_min) != dims or len(boundary_max) != dims:
         raise ValueError(f"boundary_min and boundary_max must have length equal to dims ({dims}), got {len(boundary_min)}, {len(boundary_max)}")
+    seq = 1
     for inertia in inertia_range:
         for personal in personal_range:
             for global_c in global_c_range:
@@ -107,7 +108,8 @@ def _expand_vel_coeffs(group, pso_ranges, nn_ranges):
                         target_fitness=None
                     )
                     for nn in _make_nn_config_grid(nn_ranges):
-                        exp_id = f"{group.id}_pso_{hash(str(pso))}_nn_{hash(str(nn))}"
+                        exp_id = f"{group.id}_{seq}"
+                        seq += 1
                         exps_details.append(ExpDetails(
                             id=exp_id,
                             pso_params=pso,
@@ -139,6 +141,7 @@ def _expand_fixed_budget(group, pso_ranges, nn_ranges):
                        for swarm_size in swarm_size_range]
     # Pair each with the corresponding informant_size (by index)
     n = min(len(swarm_iter_pairs), len(informants_size_range))
+    seq = 1
     for i in range(n):
         swarm_size, max_iter = swarm_iter_pairs[i]
         informants_size = int(informants_size_range[i])
@@ -159,7 +162,8 @@ def _expand_fixed_budget(group, pso_ranges, nn_ranges):
             target_fitness=None
         )
         for nn in _make_nn_config_grid(nn_ranges):
-            exp_id = f"{group.id}_pso_{hash(str(pso))}_nn_{hash(str(nn))}"
+            exp_id = f"{group.id}_{seq}"
+            seq += 1
             exps_details.append(ExpDetails(
                 id=exp_id,
                 pso_params=pso,

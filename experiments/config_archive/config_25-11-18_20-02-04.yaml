@@ -1,0 +1,101 @@
+analysis_config:
+  runs_count: 2
+investigations:
+  - type: 'vel_coeffs' # Specify the parameters to vary
+    id: 'inv1'
+    metadata:
+      name: "Velocity Coeffs Effect"
+      #description: "Investigate the effect of different velocity coefficients on PSO performance"
+    groups:
+      - id: 'inv1-group1'
+        metadata:
+          name: "Velocity Coeffs Experiments with small NN"
+          description: "Velocity Coeffs Experiments with 1 hidden layer NN"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.2, 1.0, 0.2] 
+          personal: [1.0, 1.8, 0.4] 
+          global_c: [1.0, 1.8, 0.4]
+          social:   [1.0, 1.8, 0.4] 
+          iterations_count: 20
+          swarm_size: 10
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['relu', 'linear']
+          cost_func: 'mse'
+      - id: 'inv1-group1'
+        metadata:
+          name: "Velocity Coeffs Experiments with medium NN"
+          description: "Velocity Coeffs Experiments with 2 hidden layer NN"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.2, 1.0, 0.2] 
+          personal: [1.0, 1.8, 0.4] 
+          global_c: [1.0, 1.8, 0.4]
+          social:   [1.0, 1.8, 0.4]
+          iterations_count: 20
+          swarm_size: 10
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['relu', 'relu', 'linear']
+          cost_func: 'mse'
+  - type: 'fixed_budget'
+    id: 'inv2'
+    metadata:
+      name: "Fixed Budget Effect"
+      description: "Investigate the effect of different breakdown of fitness run budget"
+    groups:
+      - id: 'inv2-group1'
+        metadata:
+          name: "Fixed Budget Experiments with optimal PSO coeffs"
+          description: "Experiment group with 1.4 PSO coeffs and NN having 2 hidden layers"
+        budget: 50 
+        pso_param_ranges:
+          # swarm range to be explored
+          swarm_size: [5, 10, 3] # (min, max, step)
+          # Iterations calculated as fitness_run_budget / swarm_size
+          inertia:  0.5
+          personal: 1.4
+          global_c:   1.4
+          social:   1.4
+          informants_size: [2, 3]
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['relu', 'relu', 'linear']
+          cost_func: 'mse'
+
+        metadata:
+          name: "Fixed Budget Experiments with PSO coeffs of 1"
+          description: "Experiment group with 1.4 PSO coeffs and NN having 2 hidden layers"
+        budget: 50 
+        pso_param_ranges:
+          # swarm range to be explored
+          swarm_size: [5, 5, 1] # (min, max, step)
+          # Iterations calculated as fitness_run_budget / swarm_size
+          inertia:  0.5
+          personal: 1.0
+          global_c:   1.0
+          social:   1.0
+          informants_size: [4]
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['relu', 'relu', 'linear']
+          cost_func: 'mse'
