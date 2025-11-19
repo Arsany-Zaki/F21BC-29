@@ -1,6 +1,6 @@
 from experiments.param_comb_generator import *
 from config.paths import *
-from exp_executor import *
+from experiments.experiment import *
 from data_prep.data_prep import *
 from data_prep.entities import *
 from utilities.printer import Printer
