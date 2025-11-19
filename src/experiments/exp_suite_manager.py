@@ -13,7 +13,7 @@ def load_config(path: str) -> Config:
 		config_dict = yaml.safe_load(f)
 	return from_dict(data_class=Config, data=config_dict)
 
-def run_exp_suite():
+def execute_exp_suite():
 	printer = Printer()
 	data_prep = DataPrep(DataPrepConfig())
 	training_points, testing_points = data_prep.get_normalized_input_data_split()
@@ -42,6 +42,3 @@ def run_exp_suite():
 				exp_detail.results = exp_result
 
 	log_config_and_result(inves_details_list)
-
-if __name__ == '__main__':
-	run_exp_suite()

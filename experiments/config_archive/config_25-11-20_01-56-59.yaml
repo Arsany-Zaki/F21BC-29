@@ -14,7 +14,7 @@ investigations:
         budget: 100
         pso_param_ranges:
           # swarm range to be explored
-          swarm_size: [10, 20, 1] # (min, max, step)
+          swarm_size: [10, 20, 5] # (min, max, step)
           # Iterations calculated as fitness_run_budget / swarm_size
           inertia:  0.7
           personal: 1.3

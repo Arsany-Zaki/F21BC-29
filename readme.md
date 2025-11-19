@@ -1,3 +1,7 @@
+# F21BC 2025 GROUP29
+# Train NN using PSO Course Work
+
+# In order to run a sample config and experiments suite
 # Run the following unhashed commands
 
 # create virtual environment using a specific python version

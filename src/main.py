@@ -35,10 +35,6 @@ pso_config = PSOParams(
     swarm_size = 20,
     informant_count = 5,
 
-    #max_iter = 20,
-    #swarm_size = 10,
-    #informant_count = 2,
-
     boundary_handling = BoundHandling.REFLECT,
     informant_selection = InformantSelect.STATIC_RANDOM,
 
