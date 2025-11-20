@@ -1,3 +1,6 @@
+# PSO algorithm using informant-based social structure
+# based on BC course week7 lecture
+
 from .entities import PSOParams
 import numpy as np
 from typing import Callable, Tuple
@@ -18,7 +21,8 @@ class PSO:
         self.vel_max = np.abs(self.boundary_max - self.boundary_min)
 
         self._initialize_swarm()
-    
+
+    # Lecture Algorithm Line 1 to 10 
     def _initialize_swarm(self):
         
         self.positions = self.rng.uniform(self.boundary_min, self.boundary_max, size=(self.config.swarm_size, self.dims))
@@ -131,7 +135,7 @@ class PSO:
         )
     
     def _update_positions(self):
-        self.positions += self.config.jump_size * self.velocities
+        self.positions += self.config.jump_size * self.velocities   
         self._apply_boundary_strategy()
     
     def _apply_boundary_strategy(self):
@@ -160,7 +164,7 @@ class PSO:
             self.positions = np.clip(self.positions, self.boundary_min, self.boundary_max)
     
     def _check_termination(self, iter_count: int) -> bool:
-        """Check termination conditions."""
+        "Check termination conditions."
         if iter_count >= self.config.max_iter:
             return True
         if (self.config.target_fitness is not None and 
@@ -169,17 +173,18 @@ class PSO:
             return True
         return False
     
+    # main algorithm of PSO optimization
     def optimize(self, fitness_func: Callable[[np.ndarray], float]) -> Tuple[np.ndarray, float]:
         """Run PSO optimization."""
         iter_count = 0
-        while not self._check_termination(iter_count):
+        while not self._check_termination(iter_count):  # Lecture Algorithm Line 11 and Line 27 
             
-            self._assess_fitness(fitness_func)  
-            self._update_personal_bests()
-            self._update_social_best()
-            self._update_global_best()
-            self._update_velocities()
-            self._update_positions()
+            self._assess_fitness(fitness_func)  # Lecture Algorithm Line 13 
+            self._update_personal_bests()          
+            self._update_social_best()          
+            self._update_global_best()          # Lecture Algorithm Line 12 - 15
+            self._update_velocities()           # Lecture Algorithm Line 20 - 24
+            self._update_positions()            # Lecture Algorithm Line 25 - 26
             
             iter_count += 1
             self.analytics.add_global_best_fitness(self.gbest_fit)

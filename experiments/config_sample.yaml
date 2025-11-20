@@ -1,8 +1,8 @@
 analysis_config:
-  runs_count: 4
+  runs_count: 2
 investigations:
   - type: 'vel_coeffs' # Specify the parameters to vary
-    id: 'inv'
+    id: 'inv1'
     metadata:
       name: "Personal, Global and Social Coeffs Effect"
       description: "Analyze the effect of different combinations of personal, global and social velocity coefficients on PSO performance"
@@ -13,13 +13,84 @@ investigations:
           description: "Social coeffs effect"
         pso_param_ranges:
           # Velocity coefficients range to be explored
-          inertia:  [0.5, 0.5, 0.0] 
-          personal: [1.4, 1.4, 0.0] 
-          global_c: [1.4, 1.4, 0.0]
-          social:   [0.5, 1.4, 0.1] 
+          inertia:  [0.5, 0.5, 0.1] 
+          personal: [1.3, 1.3, 0.1] 
+          global_c: [1.3, 1.3, 0.1]
+          social:   [0.5, 1.5, 0.1] 
           iterations_count: 100
           swarm_size: 50
-          informants_size: 20
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['relu', 'linear']
+          cost_func: 'mse'
+      - id: 'global-range'
+        metadata:
+          name: "Global coeffs effect"
+          description: "Global coeffs effect"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.5, 0.5, 0.1] 
+          personal: [1.4, 1.4, 0.1] 
+          global_c: [0.5, 1.5, 0.1]
+          social:   [1.4, 1.4, 0.1] 
+          iterations_count: 100
+          swarm_size: 50
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['relu', 'linear']
+          cost_func: 'mse'
+  - type: 'fixed_budget'
+    id: 'inv2'
+    metadata:
+      name: "Fixed Budget Effect"
+      description: "Investigate the effect of different breakdown of fitness run budget"
+    groups:
+      - id: 'fixed_budget_of_100'
+        metadata:
+          name: "Fixed Budget (100) Experiments"
+          description: ""
+        budget: 100
+        pso_param_ranges:
+          # swarm range to be explored
+          swarm_size: [10, 20, 1] # (min, max, step)
+          # Iterations calculated as fitness_run_budget / swarm_size
+          inertia:  0.7
+          personal: 1.3
+          global_c:   1.3
+          social:   1.3
+          informants_size: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['relu', 'linear']
+          cost_func: 'mse'
+      - id: 'fixed_budget_of_1000'
+        metadata:
+          name: "Fixed Budget (1000) Experiments"
+          description: ""
+        budget: 1000
+        pso_param_ranges:
+          # swarm range to be explored
+          swarm_size: [10, 100, 10] # (min, max, step)
+          # Iterations calculated as fitness_run_budget / swarm_size
+          inertia:  0.7
+          personal: 1.3
+          global_c:   1.3
+          social:   1.3
+          informants_size: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
           informant_selection: 'static_random'
           boundary_handling: 'reflect'
           jump_size: 1.0

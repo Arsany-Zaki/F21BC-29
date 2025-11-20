@@ -118,7 +118,8 @@ results/
 # --- Custom project folders ---
 /logs/
 /docs/
-notebooks/
+/experiments/config_archive/
+/experiments/result_archive/
 __output__/
 __temp__/
 
