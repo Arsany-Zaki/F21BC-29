@@ -1,3 +1,6 @@
+# Printing module for PSO runs and iterations
+# It is mainly used for countling iterations and printing global best fitness values
+
 from typing import List
 import config.global_config as gc
 

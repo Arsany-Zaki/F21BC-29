@@ -1,4 +1,4 @@
-# PSO algorithm using informant-based social structure
+# PSO algorithm using global and informant-based social structure
 # based on BC course week7 lecture
 
 from .entities import PSOParams

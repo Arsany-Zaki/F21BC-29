@@ -1,3 +1,5 @@
+# Neural Network forward pass and cost calculation
+
 from typing import List
 import numpy as np
 import math

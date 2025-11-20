@@ -1,28 +1,26 @@
+# Printing utilities for experiment investigations, groups, and experiments
+
 from tabulate import tabulate
-from pso.entities import PSOParams
-from nn.entities import NNParams
 from experiments.entities import *
-from experiments.entities_yaml import GroupConfig
 
 class Printer:
+	def __init__(self):
+		pass
 	def print_investigation_metadata(self, inves_details):
 		metadata = inves_details.metadata or {}
 		self.print(f"\n=== Investigation: {inves_details.id} (type: {inves_details.inves_type}) ===")
 		if metadata:
 			for k, v in metadata.items():
 				self.print(f"  {k}: {v}")
-
 	def print_group_metadata(self, group_details):
 		metadata = group_details.metadata or {}
 		self.print(f"  -- Group: {group_details.id} (type: {group_details.inves_type}) --")
 		if metadata:
 			for k, v in metadata.items():
 				self.print(f"    {k}: {v}")
-
 	def print_num_experiments(self, group_details):
 		n = len(group_details.exps_details)
 		self.print(f"    Number of experiments: {n}")
-
 	def print_exp_progress(self, group_id, exp_idx, exp_total, exp_id):
 		self.print(f"      [Group {group_id}] Running experiment {exp_idx}/{exp_total} (id: {exp_id}) ...")
 	def print(self, *args, **kwargs):
@@ -51,14 +49,10 @@ class Printer:
 				gdesc = gmeta.get('description')
 				if gdesc:
 					print(f"        description: {gdesc}")
-
 	def print_full_results(self, inves_details_list):
 		print("\n===== FULL EXPERIMENT RESULTS =====\n")
 		for inves_details in inves_details_list:
 			self.start_inves(inves_details)
-	def __init__(self):
-		pass
-
 	def start_inves(self, inves_details: InvesDetails):
 		metadata = inves_details.metadata or {}
 		tab1 = '    '
@@ -74,7 +68,6 @@ class Printer:
 		for group_details in inves_details.groups_details:
 			self.group_summary(group_details)
 		print()
-
 	def group_summary(self, group_details: GroupDetails):
 		metadata = group_details.metadata or {}
 		tab1 = '    '
@@ -89,7 +82,6 @@ class Printer:
 			print(f"{tab2}description: {desc}")
 		for i, exp_detail in enumerate(group_details.exps_details, 1):
 			self.exp_details_summary(exp_detail, i)
-
 	def exp_details_summary(self, exp_detail, idx):
 		tab2 = '        '
 		tab3 = '            '
@@ -191,27 +183,3 @@ class Printer:
 		print(f"        - Average RMSE: {exp_details.results.avg_rmse:.6f} ± {exp_details.results.std_rmse:.6f}")
 		print(f"        - Average MAE: {exp_details.results.avg_mae:.6f} ± {exp_details.results.std_mae:.6f}")
 		print(f"        - Average Generalization Ratio: {exp_details.results.avg_generalization_ratio:.6f} ± {exp_details.results.std_generalization_ratio:.6f}")
-
-def pso_config_printer(pso: PSOParams):
-	print("  PSOConfig:")
-	print(f"    max_iter: {pso.max_iter}")
-	print(f"    swarm_size: {pso.swarm_size}")
-	print(f"    w_inertia: {pso.w_inertia}")
-	print(f"    c_personal: {pso.c_personal}")
-	print(f"    c_social: {pso.c_social}")
-	print(f"    c_global: {pso.c_global}")
-	print(f"    jump_size: {pso.jump_size}")
-	print(f"    informant_selection: {pso.informant_selection}")
-	print(f"    informant_count: {pso.informant_count}")
-	print(f"    boundary_handling: {pso.boundary_handling}")
-	print(f"    dims: {pso.dims}")
-	print(f"    boundary_min: {pso.boundary_min}")
-	print(f"    boundary_max: {pso.boundary_max}")
-	print(f"    target_fitness: {pso.target_fitness}")
-
-def nn_config_printer(nn: NNParams):
-	print("  NNConfig:")
-	print(f"    input_dim: {nn.input_dim}")
-	print(f"    layers_sizes: {nn.layers_sizes}")
-	print(f"    activation_functions: {[a.value for a in nn.activation_functions]}")
-	print(f"    cost_function: {nn.cost_function.value}")

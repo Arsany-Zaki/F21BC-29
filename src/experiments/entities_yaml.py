@@ -1,3 +1,5 @@
+# data classes for experiment suite configuration experiments/config.yaml
+
 from dataclasses import dataclass
 from typing import List, Optional, Dict, Any
 

@@ -1,0 +1,468 @@
+[
+  {
+    "inves_type": "vel_coeffs",
+    "id": "inv1",
+    "metadata": {
+      "name": "4 nn architectures",
+      "description": "Analyze 4 nn architectures on PSO performance"
+    },
+    "groups_details": [
+      {
+        "inves_type": "vel_coeffs",
+        "id": "group_8_1_relu",
+        "metadata": {
+          "name": "Social coeffs effect",
+          "description": "Social coeffs effect"
+        },
+        "exps_details": [
+          {
+            "id": "group_8_1_relu_1",
+            "pso_params": {
+              "max_iter": 100,
+              "swarm_size": 20,
+              "w_inertia": 0.7,
+              "c_personal": 0.7,
+              "c_social": 0.7,
+              "c_global": 0.7,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 5,
+              "boundary_handling": "reflect",
+              "dims": 81,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.25626550773737866,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.2391931422545751,
+                  "mse": 1524.3263819356214,
+                  "rmse": 39.042622631370726,
+                  "mae": 36.05055324882744,
+                  "generalization_ratio": 0.9333801664003126
+                },
+                {
+                  "training_cost": 0.2987527218931179,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.2992007479279941,
+                  "mse": 1524.8570455694294,
+                  "rmse": 39.04941799271059,
+                  "mae": 36.04131367939345,
+                  "generalization_ratio": 1.0014996550727209
+                }
+              ],
+              "avg_training_cost": 0.2775091148152483,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.2691969450912846,
+              "avg_mse": 1524.5917137525253,
+              "avg_rmse": 39.04602031204065,
+              "avg_mae": 36.04593346411045,
+              "avg_generalization_ratio": 0.9674399107365168,
+              "std_training_cost": 0.021243607077869625,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.030003802836709503,
+              "std_mse": 0.2653318169039949,
+              "std_rmse": 0.003397680669930736,
+              "std_mae": 0.0046197847169970885,
+              "std_generalization_ratio": 0.03405974433620412
+            }
+          }
+        ]
+      },
+      {
+        "inves_type": "vel_coeffs",
+        "id": "group_8_1_tanh",
+        "metadata": {
+          "name": "Social coeffs effect",
+          "description": "Social coeffs effect"
+        },
+        "exps_details": [
+          {
+            "id": "group_8_1_tanh_1",
+            "pso_params": {
+              "max_iter": 100,
+              "swarm_size": 20,
+              "w_inertia": 0.7,
+              "c_personal": 0.7,
+              "c_social": 0.7,
+              "c_global": 0.7,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 5,
+              "boundary_handling": "reflect",
+              "dims": 81,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                8,
+                1
+              ],
+              "activation_functions": [
+                "tanh",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.25961195575646623,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.24061548781918105,
+                  "mse": 1526.2055150767937,
+                  "rmse": 39.06668036929672,
+                  "mae": 36.089731967243814,
+                  "generalization_ratio": 0.9268274533738917
+                },
+                {
+                  "training_cost": 0.24207100870057954,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.22971150633510187,
+                  "mse": 1523.965218095941,
+                  "rmse": 39.037997106613204,
+                  "mae": 36.06319988944533,
+                  "generalization_ratio": 0.9489426576448678
+                }
+              ],
+              "avg_training_cost": 0.25084148222852287,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.23516349707714146,
+              "avg_mse": 1525.0853665863674,
+              "avg_rmse": 39.05233873795496,
+              "avg_mae": 36.076465928344575,
+              "avg_generalization_ratio": 0.9378850555093798,
+              "std_training_cost": 0.008770473527943343,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.005451990742039586,
+              "std_mse": 1.1201484904263452,
+              "std_rmse": 0.014341631341757477,
+              "std_mae": 0.013266038899242716,
+              "std_generalization_ratio": 0.011057602135488065
+            }
+          }
+        ]
+      },
+      {
+        "inves_type": "vel_coeffs",
+        "id": "group_8_1_sigmoid",
+        "metadata": {
+          "name": "Social coeffs effect",
+          "description": "Social coeffs effect"
+        },
+        "exps_details": [
+          {
+            "id": "group_8_1_sigmoid_1",
+            "pso_params": {
+              "max_iter": 100,
+              "swarm_size": 20,
+              "w_inertia": 0.7,
+              "c_personal": 0.7,
+              "c_social": 0.7,
+              "c_global": 0.7,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 5,
+              "boundary_handling": "reflect",
+              "dims": 81,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                8,
+                1
+              ],
+              "activation_functions": [
+                "sigmoid",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.31447189759476535,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.3104670556889258,
+                  "mse": 1521.9331818884168,
+                  "rmse": 39.01196203587326,
+                  "mae": 35.99834516271935,
+                  "generalization_ratio": 0.9872648655206696
+                },
+                {
+                  "training_cost": 0.3162769925885118,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.3016445826187779,
+                  "mse": 1521.5205328404418,
+                  "rmse": 39.00667292708315,
+                  "mae": 35.991921115037485,
+                  "generalization_ratio": 0.9537354587509589
+                }
+              ],
+              "avg_training_cost": 0.3153744450916386,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.3060558191538518,
+              "avg_mse": 1521.7268573644292,
+              "avg_rmse": 39.009317481478206,
+              "avg_mae": 35.995133138878415,
+              "avg_generalization_ratio": 0.9705001621358142,
+              "std_training_cost": 0.0009025474968732128,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.004411236535073942,
+              "std_mse": 0.20632452398751866,
+              "std_rmse": 0.0026445543950543993,
+              "std_mae": 0.0032120238409341084,
+              "std_generalization_ratio": 0.01676470338485536
+            }
+          }
+        ]
+      },
+      {
+        "inves_type": "vel_coeffs",
+        "id": "group_16_8_1_relu",
+        "metadata": {
+          "name": "Social coeffs effect",
+          "description": "Social coeffs effect"
+        },
+        "exps_details": [
+          {
+            "id": "group_16_8_1_relu_1",
+            "pso_params": {
+              "max_iter": 100,
+              "swarm_size": 20,
+              "w_inertia": 0.7,
+              "c_personal": 0.7,
+              "c_social": 0.7,
+              "c_global": 0.7,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 5,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "relu",
+                "relu",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.3188688277101501,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.32465886399316074,
+                  "mse": 1523.2747292309232,
+                  "rmse": 39.02915229967112,
+                  "mae": 36.01431507384639,
+                  "generalization_ratio": 1.0181580505206163
+                },
+                {
+                  "training_cost": 0.31780582187297723,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.35624949495469016,
+                  "mse": 1519.1263898844309,
+                  "rmse": 38.97597195560915,
+                  "mae": 35.9529309307592,
+                  "generalization_ratio": 1.1209659182929579
+                }
+              ],
+              "avg_training_cost": 0.3183373247915637,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.3404541794739254,
+              "avg_mse": 1521.200559557677,
+              "avg_rmse": 39.00256212764013,
+              "avg_mae": 35.98362300230279,
+              "avg_generalization_ratio": 1.069561984406787,
+              "std_training_cost": 0.0005315029185864462,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.01579531548076471,
+              "std_mse": 2.0741696732461605,
+              "std_rmse": 0.02659017203098557,
+              "std_mae": 0.030692071543594324,
+              "std_generalization_ratio": 0.051403933886170816
+            }
+          }
+        ]
+      },
+      {
+        "inves_type": "vel_coeffs",
+        "id": "group_16_8_1_tanh",
+        "metadata": {
+          "name": "Social coeffs effect",
+          "description": "Social coeffs effect"
+        },
+        "exps_details": [
+          {
+            "id": "group_16_8_1_tanh_1",
+            "pso_params": {
+              "max_iter": 100,
+              "swarm_size": 20,
+              "w_inertia": 0.7,
+              "c_personal": 0.7,
+              "c_social": 0.7,
+              "c_global": 0.7,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 5,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "tanh",
+                "tanh",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.2689421768297964,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.2537419210221424,
+                  "mse": 1525.2476408643079,
+                  "rmse": 39.05441896718357,
+                  "mae": 36.09869546044153,
+                  "generalization_ratio": 0.9434813238041362
+                },
+                {
+                  "training_cost": 0.26506290038575403,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.25856122240362406,
+                  "mse": 1522.302373037109,
+                  "rmse": 39.01669351748183,
+                  "mae": 36.03168462451159,
+                  "generalization_ratio": 0.9754711882626053
+                }
+              ],
+              "avg_training_cost": 0.26700253860777523,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.2561515717128832,
+              "avg_mse": 1523.7750069507083,
+              "avg_rmse": 39.0355562423327,
+              "avg_mae": 36.06519004247656,
+              "avg_generalization_ratio": 0.9594762560333707,
+              "std_training_cost": 0.0019396382220211728,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.002409650690740839,
+              "std_mse": 1.4726339135994522,
+              "std_rmse": 0.018862724850869483,
+              "std_mae": 0.033505417964970974,
+              "std_generalization_ratio": 0.015994932229234538
+            }
+          }
+        ]
+      },
+      {
+        "inves_type": "vel_coeffs",
+        "id": "group_16_8_1_sigmoid",
+        "metadata": {
+          "name": "Social coeffs effect",
+          "description": "Social coeffs effect"
+        },
+        "exps_details": [
+          {
+            "id": "group_16_8_1_sigmoid_1",
+            "pso_params": {
+              "max_iter": 100,
+              "swarm_size": 20,
+              "w_inertia": 0.7,
+              "c_personal": 0.7,
+              "c_social": 0.7,
+              "c_global": 0.7,
+              "jump_size": 1.0,
+              "informant_selection": "static_random",
+              "informant_count": 5,
+              "boundary_handling": "reflect",
+              "dims": 289,
+              "target_fitness": null
+            },
+            "nn_params": {
+              "input_dim": 8,
+              "layers_sizes": [
+                16,
+                8,
+                1
+              ],
+              "activation_functions": [
+                "sigmoid",
+                "sigmoid",
+                "linear"
+              ],
+              "cost_function": "mse"
+            },
+            "results": {
+              "exp_run_results": [
+                {
+                  "training_cost": 0.33689226695099045,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.31602555865162296,
+                  "mse": 1521.9508801418588,
+                  "rmse": 39.012188866325594,
+                  "mae": 35.9993906572635,
+                  "generalization_ratio": 0.9380611835106234
+                },
+                {
+                  "training_cost": 0.3365716650650211,
+                  "training_time_secs": 0.0,
+                  "test_cost": 0.30670055340905644,
+                  "mse": 1524.2077526591927,
+                  "rmse": 39.041103373997935,
+                  "mae": 36.02509999737071,
+                  "generalization_ratio": 0.911248881719755
+                }
+              ],
+              "avg_training_cost": 0.3367319660080058,
+              "avg_training_time_secs": 0.0,
+              "avg_test_cost": 0.3113630560303397,
+              "avg_mse": 1523.0793164005258,
+              "avg_rmse": 39.026646120161764,
+              "avg_mae": 36.0122453273171,
+              "avg_generalization_ratio": 0.9246550326151892,
+              "std_training_cost": 0.00016030094298466468,
+              "std_training_time_secs": 0.0,
+              "std_test_cost": 0.00466250262128326,
+              "std_mse": 1.1284362586669658,
+              "std_rmse": 0.014457253836170025,
+              "std_mae": 0.012854670053606299,
+              "std_generalization_ratio": 0.013406150895434177
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,3 +1,5 @@
+# execute a set of runs of an experiment and collect results
+
 from nn.nn import NNParams
 from pso.pso import PSOParams
 from experiments.entities_yaml import *

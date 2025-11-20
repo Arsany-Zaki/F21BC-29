@@ -1,5 +1,6 @@
-########### Sample execution for training a neural network 
-########### using PSO and evaluating its performance
+########### Sample execution for training a neural network and evaluating its performance
+########### Parameters are hardcoded in this file
+########### Parameters and evaluation metrics are printed to console
 
 from pso_nn_coupling.nn_trainer_with_pso import NNTrainerUsingPSO
 from pso.pso import PSOParams
@@ -26,23 +27,23 @@ data_config = DataPrepConfig(
 nn_config = NNParams(
     input_dim = 8,
     layers_sizes = [8, 1],
-    activation_functions = [ActFunc.RELU, ActFunc.LINEAR],
+    activation_functions = [ActFunc.TANH, ActFunc.LINEAR],
     cost_function = CostFunc.MEAN_SQUARED_ERROR
 )
 # PSO configuration
 pso_config = PSOParams(
-    max_iter = 10,
-    swarm_size = 20,
-    informant_count = 5,
+    max_iter = 100,
+    swarm_size = 30,
+    informant_count = 10,
 
-    boundary_handling = BoundHandling.REFLECT,
-    informant_selection = InformantSelect.STATIC_RANDOM,
+    boundary_handling = BoundHandling.CLIP,
+    informant_selection = InformantSelect.DYNAMIC_RANDOM,
 
     w_inertia = 0.7,
 
-    c_personal = 1.4,
-    c_global = 1.4,
-    c_social = 1.4,
+    c_personal = 0.7,
+    c_global = 0.7,
+    c_social = 0.7,
 
     jump_size = 1.0,
     dims = 8,                

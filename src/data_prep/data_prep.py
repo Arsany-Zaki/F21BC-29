@@ -1,3 +1,5 @@
+# preparing input data: reading from file, normalization, splitting into training and testing sets
+
 from __future__ import annotations
 from typing import List, Tuple
 import pandas as pd

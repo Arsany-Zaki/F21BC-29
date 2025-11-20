@@ -1,3 +1,6 @@
+# read experiment suite configuration, generate parameter combinations, 
+# execute experiments, and log results
+
 from experiments.param_comb_generator import *
 from config.paths import *
 from experiments.experiment import *

@@ -1,3 +1,5 @@
+# logging experiment configurations and results
+
 import os
 import json
 from datetime import datetime

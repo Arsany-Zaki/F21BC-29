@@ -1,0 +1,138 @@
+analysis_config:
+  runs_count: 2
+investigations:
+  - type: 'vel_coeffs' # Specify the parameters to vary
+    id: 'inv1'
+    metadata:
+      name: "4 nn architectures"
+      description: "Analyze 4 nn architectures on PSO performance"
+    groups:
+      - id: 'group_8_1_relu'
+        metadata:
+          name: "Social coeffs effect"
+          description: "Social coeffs effect"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.7, 0.7, 0.1] 
+          personal: [0.7, 0.7, 0.1] 
+          global_c: [0.7, 0.7, 0.1]
+          social:   [0.7, 0.7, 0.1] 
+          iterations_count: 100
+          swarm_size: 20
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['relu', 'linear']
+          cost_func: 'mse'
+      - id: 'group_8_1_tanh'
+        metadata:
+          name: "Social coeffs effect"
+          description: "Social coeffs effect"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.7, 0.7, 0.1] 
+          personal: [0.7, 0.7, 0.1] 
+          global_c: [0.7, 0.7, 0.1]
+          social:   [0.7, 0.7, 0.1] 
+          iterations_count: 100
+          swarm_size: 20
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['tanh', 'linear']
+          cost_func: 'mse'
+      - id: 'group_8_1_sigmoid'
+        metadata:
+          name: "Social coeffs effect"
+          description: "Social coeffs effect"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.7, 0.7, 0.1] 
+          personal: [0.7, 0.7, 0.1] 
+          global_c: [0.7, 0.7, 0.1]
+          social:   [0.7, 0.7, 0.1] 
+          iterations_count: 100
+          swarm_size: 20
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['sigmoid', 'linear']
+          cost_func: 'mse'
+      - id: 'group_16_8_1_relu'
+        metadata:
+          name: "Social coeffs effect"
+          description: "Social coeffs effect"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.7, 0.7, 0.1] 
+          personal: [0.7, 0.7, 0.1] 
+          global_c: [0.7, 0.7, 0.1]
+          social:   [0.7, 0.7, 0.1] 
+          iterations_count: 100
+          swarm_size: 20
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['relu', 'relu', 'linear']
+          cost_func: 'mse'
+      - id: 'group_16_8_1_tanh'
+        metadata:
+          name: "Social coeffs effect"
+          description: "Social coeffs effect"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.7, 0.7, 0.1] 
+          personal: [0.7, 0.7, 0.1] 
+          global_c: [0.7, 0.7, 0.1]
+          social:   [0.7, 0.7, 0.1] 
+          iterations_count: 100
+          swarm_size: 20
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['tanh', 'tanh', 'linear']
+          cost_func: 'mse'
+      - id: 'group_16_8_1_sigmoid'
+        metadata:
+          name: "Social coeffs effect"
+          description: "Social coeffs effect"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.7, 0.7, 0.1] 
+          personal: [0.7, 0.7, 0.1] 
+          global_c: [0.7, 0.7, 0.1]
+          social:   [0.7, 0.7, 0.1] 
+          iterations_count: 100
+          swarm_size: 20
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['sigmoid', 'sigmoid', 'linear']
+          cost_func: 'mse'
+      
+
+      

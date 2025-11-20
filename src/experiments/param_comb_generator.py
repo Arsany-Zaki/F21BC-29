@@ -1,3 +1,5 @@
+# Generate combinations of parameters for experiments
+
 from typing import List
 from pso.entities import PSOParams
 from nn.entities import NNParams
@@ -125,7 +127,8 @@ def _expand_fixed_budget(group, pso_ranges, nn_ranges):
     global_c = _expand_range(pso_ranges.global_c)[0]
     social = _expand_range(pso_ranges.social)[0]
     swarm_size_range = _expand_range(pso_ranges.swarm_size)
-    informants_size_range = _expand_range(pso_ranges.informants_size)
+    #informants_size_range = _expand_range(pso_ranges.informants_size)
+    informants_size_range = pso_ranges.informants_size
     budget = getattr(group, 'budget', None)
     dims = getattr(nn_ranges, 'input_dim', 1) or 1
     if not isinstance(dims, int) or dims < 1:

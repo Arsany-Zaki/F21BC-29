@@ -1,6 +1,7 @@
 # Out-of-the-box PSO implementation from pyswarm library
 # Test the implemented PSO against this one for verification
- 
+# It IS NOT used in the final experiments, it is only for testing purposes 
+
 from .entities import PSOParams
 from pyswarm import pso as pyswarm_pso
 

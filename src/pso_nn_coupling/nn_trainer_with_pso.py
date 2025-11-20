@@ -1,3 +1,5 @@
+# Training a Neural Network using Particle Swarm Optimization (PSO)
+
 from nn.nn import NeuralNetwork
 import numpy as np
 from nn import *

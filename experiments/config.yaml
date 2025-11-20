@@ -14,10 +14,10 @@ investigations:
         pso_param_ranges:
           # Velocity coefficients range to be explored
           inertia:  [0.72, 0.72, 0.1] 
-          personal: [0.6, 1.4, 0.2] 
-          global_c: [0.6, 1.4, 0.2]
-          social:   [0.6, 1.4, 0.2] 
-          iterations_count: 50
+          personal: [0.6, 0.8, 0.1] 
+          global_c: [0.6, 0.8, 0.1]
+          social:   [0.6, 0.8, 0.1] 
+          iterations_count: 20
           swarm_size: 10
           informants_size: 5
           informant_selection: 'static_random'
@@ -28,5 +28,75 @@ investigations:
           layers_sizes: [8, 1]
           act_funcs: ['relu', 'linear']
           cost_func: 'mse'
-
+      - id: 'global-range'
+        metadata:
+          name: "Global coeffs effect"
+          description: "Global coeffs effect"
+        pso_param_ranges:
+          # Velocity coefficients range to be explored
+          inertia:  [0.72, 0.72, 0.1] 
+          personal: [0.6, 0.8, 0.1] 
+          global_c: [0.6, 0.8, 0.1]
+          social:   [0.6, 0.8, 0.1] 
+          iterations_count: 20
+          swarm_size: 10
+          informants_size: 5
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['tanh', 'linear']
+          cost_func: 'mse'
+  - type: 'fixed_budget'
+    id: 'inv2'
+    metadata:
+      name: "Fixed Budget Effect"
+      description: "Investigate the effect of different breakdown of fitness run budget"
+    groups:
+      - id: 'fixed_budget_of_100'
+        metadata:
+          name: "Fixed Budget (100) Experiments"
+          description: ""
+        budget: 100
+        pso_param_ranges:
+          # swarm range to be explored
+          swarm_size: [10, 20, 5] # (min, max, step)
+          # Iterations calculated as fitness_run_budget / swarm_size
+          inertia:  0.7
+          personal: 0.7
+          global_c: 0.7
+          social:   0.7
+          informants_size: [5, 5, 5]
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [8, 1]
+          act_funcs: ['relu', 'linear']
+          cost_func: 'mse'
+      - id: 'fixed_budget_of_100'
+        metadata:
+          name: "Fixed Budget (100) Experiments"
+          description: ""
+        budget: 100
+        pso_param_ranges:
+          # swarm range to be explored
+          swarm_size: [10, 20, 5] # (min, max, step)
+          # Iterations calculated as fitness_run_budget / swarm_size
+          inertia:  0.7
+          personal: 0.7
+          global_c: 0.7
+          social:   0.7
+          informants_size: [5, 5, 5]
+          informant_selection: 'static_random'
+          boundary_handling: 'reflect'
+          jump_size: 1.0
+        nn_param_ranges:
+          input_dim: 8
+          layers_sizes: [16, 8, 1]
+          act_funcs: ['relu', 'relu', 'linear']
+          cost_func: 'mse'
       
